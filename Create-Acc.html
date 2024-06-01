@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/createaccount_styles.css">
+    <title>Sign up</title>
+  </head>
+  <body>
+    <div class="form-container">
+      <h1>Professors Account</h1>
+      <form class="form">
+        <input type="text" placeholder="First Name" required class="first" />
+        <input type="text" placeholder="Middle Name" class="middle" />
+        <input type="text" placeholder="Last Name" required class="last" />
+        <div class="birthday">
+          <label for="birthday">Birthday</label>
+          <input type="date" id="birthday" name="birthday" required />
+        </div>
+        <div class="age">
+          <input type="number" placeholder="Age" required />
+        </div>
+        <div class="gender">
+          <label for="gender" >Gender</label>
+          <select name="gender" id="gender" required>
+            <option value="">-----/-----</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+        </div>
+        <input type="text" placeholder="Address" class="address" required />
+        <input type="email" placeholder="Email" required class="email" />
+        <input type="number" placeholder="Phone" required class="phone" />
+        <label for="courses" >Courses</label>
+        <select name="courses" id="courses" required>
+          <option value=""> Please select the courses</option>
+          <option value="oop">Object Oriented Programming</option>
+          <option value="webdev">Web development</option>
+          <option value="comprog1">Computer Programming 1</option>
+        </select>
+        <label for="status" > Status</label>
+        <select name="status" id="status" required>
+          <option value=""> Please select the status</option>
+          <option value="temp">Temporary Faculty</option>
+          <option value="parttime">Part time Faculty</option>
+          <option value="regular">Regular Faculty</option>
+        </select>
+        <input type="password" placeholder="Password" required class="password" />
+        <input type="password" placeholder="Confirm Password" required class="confirm" />
+        <button type="submit">Create Account</button>
+      </form>
+    </div>
+  </body>
+</html>
