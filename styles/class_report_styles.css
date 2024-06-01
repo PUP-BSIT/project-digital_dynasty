@@ -1,0 +1,66 @@
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    position: relative;
+    background-image: url(./images/puptclass.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+  }
+  
+  .form-container {
+    position: relative;
+    z-index: 1;
+    padding: 65px;
+    background: #F3EFD0;
+    border-radius: 10px;
+    max-width: 900px;
+    margin: 100px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-weight: bolder;
+    text-align: center;
+  }
+  
+  .form-container h1 {
+    background-color: #800000;
+    color: white;
+    padding: 20px;
+    margin: -20px -20px 20px -20px;
+    border-radius: 10px 10px 0 0;
+  }
+  
+  .form {
+    display: grid;
+    grid-gap: 15px;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .form input,
+  .form select,
+  .form button {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  .form button {
+    border: none;
+    background-color: #e69b00;
+    color: black;
+    font-size: 18px;
+    cursor: pointer;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    grid-area: button;
+  }
+  
+  .form button:hover {
+    background-color: #e6cc00;
+    color: black;
+  }
+  

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Information</title>
+    <link rel="stylesheet" href="./styles/studentinfo_styles.css">
+</head>
+<body>
+    <header>
+        <div>
+            <h2 id="header">Student Information</h2>
+        </div>
+        <div class="gold-line"></div>
+    </header>
+    <main>
+        <div class="greeting">
+            <h1>Hello, John Doe</h1>
+        </div>
+        <div class="container">
+            <div id="name">Name: John Doe</div>
+            <div id="gender">Gender: Male</div>
+            <div id="email">Email: johndoe@example.com</div>
+            <div id="section">Section: A1</div>
+            <div id="studentnumber">Student Number: 123456</div>
+            <div id="contactnumber">Contact Number: 123-456-7890</div>
+        </div>
+        <div class="course-selection">
+            <label for="courses">Courses</label>
+            <select name="courses" id="courses" required>
+                <option value="">Please select the course</option>
+                <option value="oop">Object Oriented Programming</option>
+                <option value="webdev">Web Development</option>
+                <option value="comprog1">Computer Programming 1</option>
+            </select>
+            <button type="submit">Submit</button>
+        </div>
+        <div class="attendance-status">
+            <h3>Attendance Status</h3>
+            <p>Present</p> <!-- Example, replace with dynamic data -->
+        </div>
+    </main>
+</body>
+</html>
