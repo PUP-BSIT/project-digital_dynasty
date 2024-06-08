@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administration Dashboard</title>
+    <link rel="stylesheet" href="./styles/styless.css">
+</head>
+<body>
+    <div class="header">ADMINISTRATION DASHBOARD</div>
+    <div class="container">
+        <div class="top-menu">
+            <div>
+                <img src="students_icon.png" alt="Students">
+                <p>Students<br>20</p>
+            </div>
+            <div>
+                <img src="classes_icon.png" alt="Classes">
+                <p>Classes<br>4</p>
+            </div>
+            <div>
+                <img src="class_arms_icon.png" alt="Class Arms">
+                <p>Class Arms<br>5</p>
+            </div>
+            <div>
+                <img src="total_classes_icon.png" alt="Total Classes">
+                <p>Total Classes<br>26</p>
+            </div>
+            <div>
+                <img src="profs_icon.png" alt="Class Profs">
+                <p>Class Profs<br>4</p>
+            </div>
+            <div>
+                <img src="session_terms_icon.png" alt="Session Terms">
+                <p>Session Terms<br>3</p>
+            </div>
+            <div>
+                <img src="terms_icon.png" alt="Terms">
+                <p>Terms<br>3</p>
+            </div>
+        </div>
+
+        <div class="attendance-section">
+            <h2>Class Attendance</h2>
+            <label for="show">Show</label>
+            <input type="number" id="show" value="10">
+            <input type="search" placeholder="Search">
+            <table class="attendance-table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Other Names</th>
+                        <th>Admission No</th>
+                        <th>Class</th>
+                        <th>Class Arm</th>
+                        <th>Session</th>
+                        <th>Term</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>John</td>
+                        <td>Reyes</td>
+                        <td>none</td>
+                        <td>AMS110</td>
+                        <td>nine</td>
+                        <td>N1</td>
+                        <td>2022/2023</td>
+                        <td>First</td>
+                        <td class="status-present">Present</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
