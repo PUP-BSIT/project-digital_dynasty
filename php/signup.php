@@ -16,7 +16,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $student_number = uniqid('2024-');
 
     if ($password !== $confirm_password) {
-        echo json_encode(['success' => false, 'message' => 'Passwords do not match.']);
+        echo json_encode
+        (['success' => false, 'message' => 'Passwords do not match.']);
         exit;
     }
 
@@ -24,12 +25,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     try {
 
-        $stmt = $pdo->prepare('INSERT INTO student (firstname, middlename, lastname, birthday, age, gender, address, email, phone, password, datetime_created, datetime_updated, student_number) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW(), NOW(), ?)');
-        $stmt->execute([$firstname, $middlename, $lastname, $birthday, $age, $gender, $address, $email, $phone, $hashed_password, $student_number]);
+        $stmt = $pdo->prepare
+        ('INSERT INTO student (firstname, middlename, lastname, birthday, 
+                               age, gender, address, email, phone, password, 
+                               datetime_created, datetime_updated, 
+                               student_number) 
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW(), NOW(), ?)');
+        $stmt->execute([$firstname, $middlename, $lastname, $birthday, $age, 
+                        $gender, $address, $email, $phone, 
+                        $hashed_password, $student_number]);
 
-        echo json_encode(['success' => true, 'message' => 'Sign up successful!']);
+        echo json_encode
+        (['success' => true, 'message' => 'Sign up successful!']);
     } catch (Exception $e) {
-        echo json_encode(['success' => false, 'message' => 'An error occurred: ' . $e->getMessage()]);
+        echo json_encode(['success' => false, 'message' => 'An error occurred:'
+         . $e->getMessage()]);
     }
 }
 ?>

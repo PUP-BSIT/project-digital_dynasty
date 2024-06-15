@@ -5,15 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./styles/signup_styles.css">
     <title>Sign up</title>
-    <script src="signup.js" defer></script>
 </head>
 <body>
     <div class="form-container">
         <h1>Sign up</h1>
         <form class="form" method="post">
-            <input type="text" name="firstname" placeholder="First Name" required class="first" />
-            <input type="text" name="middlename" placeholder="Middle Name" class="middle" />
-            <input type="text" name="lastname" placeholder="Last Name" required class="last" />
+            <input type="text" name="firstname" placeholder="First Name" 
+                   required class="first" />
+            <input type="text" name="middlename" placeholder="Middle Name" 
+                   class="middle" />
+            <input type="text" name="lastname" placeholder="Last Name" 
+                   required class="last" />
             <div class="birthday">
                 <label for="birthday">Birthday</label>
                 <input type="date" id="birthday" name="birthday" required />
@@ -29,13 +31,19 @@
                     <option value="female">Female</option>
                 </select>
             </div>
-            <input type="text" name="address" placeholder="Address" class="address" required />
-            <input type="email" name="email" placeholder="Email" required class="email" />
-            <input type="number" name="phone" placeholder="Phone" required class="phone" />
-            <input type="password" name="password" placeholder="Password" required class="password" />
-            <input type="password" name="confirm_password" placeholder="Confirm Password" required class="confirm" />
+            <input type="text" name="address" 
+                   placeholder="Address" class="address" required />
+            <input type="email" name="email" placeholder="Email" 
+                   required class="email" />
+            <input type="number" name="phone" placeholder="Phone" 
+                   required class="phone" />
+            <input type="password" name="password" placeholder="Password" 
+                   required class="password" />
+            <input type="password" name="confirm_password" 
+                   placeholder="Confirm Password" required class="confirm" />
             <button type="submit">Sign Up</button>
         </form>
     </div>
+    <script src="signup.js"></script>
 </body>
 </html>
