@@ -1,97 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./styles/summaryreport_styles.css" />
-  </head>
-  <body>
-    <header>
-      <h1>Summary Report</h1>
-      <p><strong>Date:</strong> June 7, 2024</p>
-    </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/summaryreport_styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Summary Report</h1>
+      <p><strong>Date:</strong> June 15, 2024</p>
+    </header>
 
-    <section>
-      <h2>Attendance Sheet</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Student Name</th>
-            <th>Gender</th>
-            <th>Present/Absent</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Student 1</td>
-            <td>Male</td>
-            <td>Present</td>
-          </tr>
-          <tr>
-            <td>Student 2</td>
-            <td>Female</td>
-            <td>Present</td>
-          </tr>
-          <tr>
-            <td>Student 3</td>
-            <td>Male</td>
-            <td>Absent</td>
-          </tr>
-          <tr>
-            <td>Student 4</td>
-            <td>Female</td>
-            <td>Present</td>
-          </tr>
-          <tr>
-            <td>Student 5</td>
-            <td>Male</td>
-            <td>Present</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
+    <section>
+      <h2>Attendance Sheet</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Student Name</th>
+            <th>Gender</th>
+            <th>Present/Absent</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Student 1</td>
+            <td>Male</td>
+            <td>Present</td>
+          </tr>
+          <tr>
+            <td>Student 2</td>
+            <td>Female</td>
+            <td>Present</td>
+          </tr>
+          <tr>
+            <td>Student 3</td>
+            <td>Male</td>
+            <td>Absent</td>
+          </tr>
+          <tr>
+            <td>Student 4</td>
+            <td>Female</td>
+            <td>Present</td>
+          </tr>
+          <tr>
+            <td>Student 5</td>
+            <td>Male</td>
+            <td>Present</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
 
-    <section>
-      <h2>Feedbacks</h2>
-      <p>I'm sick.</p>
-    </section>
+    <section>
+      <h2>Feedbacks</h2>
+      <p>I'm sick.</p>
+    </section>
 
-    <section>
-      <h2>Class Report Chart</h2>
-      <canvas id="progressChart"></canvas>
-    </section>
+    <section>
+      <h2>Class Report Chart</h2>
+      <canvas id="progressChart"></canvas>
+    </section>
 
-    <footer class="footer">
-      <p>Prepared by: <strong>Mr. Garcia</strong></p>
-      <p>English Literature 101</p>
-    </footer>
+    <footer class="footer">
+      <p>Prepared by: <strong>Mr. Garcia</strong></p>
+      <p>English Literature 101</p>
+    </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script>
-      const ctx = document.getElementById("progressChart").getContext("2d");
-      const progressChart = new Chart(ctx, {
-        type: "bar",
-        data: {
-          labels: ["Attendance", "Participation", "Essay", "Quizzes", "Exam"],
-          datasets: [
-            {
-              label: "Progress (%)",
-              data: [80, 90, 85, 78, 80],
-              backgroundColor: "rgba(54, 162, 235, 0.2)",
-              borderColor: "rgba(54, 162, 235, 1)",
-              borderWidth: 1,
-            },
-          ],
-        },
-        options: {
-          scales: {
-            y: {
-              beginAtZero: true,
-              max: 100,
-            },
-          },
-        },
-      });
-    </script>
-  </body>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+      const ctx = document.getElementById("progressChart").getContext("2d");
+      const progressChart = new Chart(ctx, {
+        type: "bar",
+        data: {
+          labels: ["Attendance", "Participation", "Essay", "Quizzes", "Exam"],
+          datasets: [
+            {
+              label: "Progress (%)",
+              data: [80, 90, 85, 78, 80],
+              backgroundColor: "rgba(54, 162, 235, 0.2)",
+              borderColor: "rgba(54, 162, 235, 1)",
+              borderWidth: 1,
+            },
+          ],
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+              max: 100,
+            },
+          },
+        },
+      });
+    </script>
+  </body>
 </html>

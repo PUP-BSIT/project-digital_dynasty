@@ -5,69 +5,67 @@ body {
     height: 100vh;
     margin: 0;
     font-family: Arial, sans-serif;
-    background-color: #9e1b1b;
-    color: #4b0082;
-}
-
-.container {
+    background-color: maroon;
+    color: #800000; 
+  }
+  
+  .container {
     display: flex;
-    width: 900px;
-    background-color: #f5d079;
+    flex-direction: column;
+    width: 800px; 
+    background-color: #ffe0b3; 
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-}
-
-.login-form {
-    padding: 30px;
-    flex: 1;
-}
-
-.login-form h2 {
+    padding: 20px;
+  }
+  
+  .account-form {
+    width: 100%;
+  }
+  
+  .account-form h2 {
     margin-bottom: 20px;
-    color: #9e1b1b;
-}
-
-.social-icons {
+    color: maroon; 
+    text-align: center;
+  }
+  
+  .form-row {
+    margin-bottom: 20px; 
     display: flex;
-    justify-content: space-around;
-    margin-bottom: 20px;
-}
-
-.social-icons a {
-    font-size: 24px;
-    color: #4b0082;
-    text-decoration: none;
-    margin: 0 10px;
-}
-
-.login-form input {
-    width: calc(100% - 20px);
+  }
+  
+  .form-group {
+    margin: 0 10px; 
+    border-radius: 5px; 
+    padding: 5px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #800000;
+  }
+  
+  .form-group input {
+    width: 100%;
     padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ddd;
+    border: 1px solid #ccc;
     border-radius: 5px;
-    box-sizing: border-box;
-}
-
-.login-form button {
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.1); 
+  }
+  
+  .account-form button {
     width: 100%;
     padding: 10px;
     margin-top: 20px;
     border: none;
     border-radius: 5px;
-    background-color: #9e1b1b;
-    color: #f1b95e;
+    background-image: linear-gradient(to right, maroon, yellow); 
+    color: #fff; 
     font-size: 16px;
     cursor: pointer;
-}
-
-.login-form button:hover {
-    background-color: #9e1b1b;
-}
-
-.illustration {
-    flex: 1;
-    background: url('illustration.jpg') no-repeat center center;
-    background-size: cover;
-}
+  }
+  
+  .account-form button:hover {
+    background-image: linear-gradient(to right, yellow, maroon); 
+  }
+  
