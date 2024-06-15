@@ -1,44 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Student Attendance</title>
-    <link rel="stylesheet" href="styles/attendance_styles.css">
-</head>
-<body>
+    <link rel="stylesheet" href="styles/attendance_styles.css" />
+  </head>
+  <body>
     <header>
-        <h1>Student Attendance</h1>
-        <div class="gold-line"></div>
+      <h1>Student Attendance</h1>
+      <div class="gold-line"></div>
     </header>
     <main>
-        <table>
-            <thead>
-                <tr>
-                    <th>Student Name</th>
-                    <th>Student Number</th>
-                    <th>Attendance Status</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td class="cell-with-border">John Doe</td>
-                    <td class="cell-with-border">12345</td>
-                    <td class="attendance-status cell-with-border">
-                        Present
-                        <button>Update</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="cell-with-border">Jane Smith</td>
-                    <td class="cell-with-border">67890</td>
-                    <td class="attendance-status cell-with-border">
-                        Absent
-                        <button>Update</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+      <table>
+        <thead>
+          <tr>
+            <th>Student Name</th>
+            <th>Student Number</th>
+            <th>Date</th>
+            <th>Attendance Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="cell-with-border">John Doe</td>
+            <td class="cell-with-border">12345</td>
+            <td class="cell-with-border">2023-06-15</td>
+            <td class="attendance-status cell-with-border">Present</td>
+            <td class="cell-with-border">
+              <button class="update-button">Update</button>
+              <button class="edit-button">Edit</button>
+            </td>
+          </tr>
+          <tr>
+            <td class="cell-with-border">Jane Smith</td>
+            <td class="cell-with-border">67890</td>
+            <td class="cell-with-border">2023-06-15</td>
+            <td class="attendance-status cell-with-border">Absent</td>
+            <td class="cell-with-border">
+              <button class="update-button">Update</button>
+              <button class="edit-button">Edit</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </main>
-</body>
+  </body>
 </html>
