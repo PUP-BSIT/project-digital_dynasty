@@ -1,0 +1,127 @@
+body {
+  margin: 0px;
+  font-family: "Courier New", Courier, monospace;
+  overflow-x: hidden; /* Ensure horizontal overflow is hidden */
+}
+
+a {
+  text-decoration: none;
+  color: #800000;
+}
+
+#nav_button {
+  width: 90px;
+  height: 90px;
+  margin: 15px;
+  transition: transform 0.5s;
+  cursor: pointer;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #800000;
+}
+
+#log_in,
+#sign_up {
+  border-radius: 50px;
+  padding: 15px;
+  background-color: #ffa500;
+  border: none;
+  font-size: 25px;
+  font-weight: bolder;
+  width: 150px;
+  margin-right: 100px;
+  transition: background-color 0.5s;
+}
+
+#log_in {
+  margin-right: 50px;
+}
+
+.orange img {
+  width: 100%;
+  height: 15px;
+}
+
+#log_in:hover,
+#sign_up:hover,
+#icon:hover,
+a:hover {
+  color: white;
+  background-color: black;
+  transform: scale(1.1);
+}
+
+#g_picture {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  margin: auto;
+  margin-left: 40px;
+  margin-top: 30px;
+}
+
+.hover-text {
+  position: absolute;
+  top: 70%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+  background-color: #800000;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  width: 945px;
+  height: 150px;
+  font-size: 29.2px;
+}
+
+#group_name {
+  background-color: #800000;
+  color: white;
+  font-weight: normal;
+  border-radius: 10px;
+  text-align: center;
+  width: 880px;
+  height: 65px;
+  font-size: 55px;
+  margin-left: 400px;
+  margin-top: -200px;
+}
+
+.digital-dynasty {
+  margin-left: 0px;
+  margin-right: 40px;
+}
+
+.nav-menu {
+  position: fixed;
+  top: 0;
+  left: -100%; /* Start off-screen */
+  width: 35%;
+  height: 100vh;
+  background-color: #ffa500;
+  transition: left 0.5s;
+  z-index: 1000; /* Ensure it's above other content */
+  padding-top: 40px; /* Ensure content starts below the header */
+  box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.5); /* Optional: add shadow for better visibility */
+}
+
+.nav-menu ul li a {
+  text-decoration: none;
+  color: #800000;
+  font-weight: bolder;
+  font-size: 80px;
+  text-overflow: scroll;
+}
+
+.nav-menu ul li a:hover {
+  color: black;
+}
+
+.nav-menu.isOpen {
+  left: 0; /* Position to show menu on screen */
+}
