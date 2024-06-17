@@ -76,8 +76,25 @@ form .status-options label {
   margin-right: 10px;
 }
 
-form .status-options label input {
-  margin-right: 5px;
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+thead th, tbody td {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #ccc;
+}
+
+thead {
+  background-color: #800000;
+  color: white;
+}
+
+tbody td {
+  background-color: #F3EFD0;
 }
 
 form input[type="submit"] {
