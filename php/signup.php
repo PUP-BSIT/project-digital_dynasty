@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $phone = $_POST['phone'];
     $password = $_POST['password'];
     $confirm_password = $_POST['confirm_password'];
-    $student_number = uniqid('2024-');
+    $student_number = uniqid('2022-TH-');
 
     if ($password !== $confirm_password) {
         echo json_encode
