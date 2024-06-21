@@ -14,3 +14,13 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+  document.getElementById("log_in").addEventListener("click", function() {
+      window.location = "../works/log_in_form.html";
+  });
+
+  document.getElementById("sign_up").addEventListener("click", function() {
+      window.location.href = "../works/sign_up_form.html"; 
+  });
+});

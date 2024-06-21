@@ -1,39 +1,36 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('signupForm');
-    const submitButton = document.getElementById('submitButton');
-    const fields = Array.from(form.querySelectorAll('input[required], select[required]'));
-    const passwordField = form.querySelector('input[name="password"]');
-    const confirmPasswordField = form.querySelector('input[name="confirmPassword"]');
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("signupForm");
 
-    function validateForm() {
-        let valid = true;
-        fields.forEach(field => {
-            if (!field.value.trim()) {
-                valid = false;
-            }
-        });
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
 
-        if (passwordField.value !== confirmPasswordField.value) {
-            valid = false;
-        }
+    const password = document.getElementById("password").value;
+    const confirmPassword = document.getElementById("confirmPassword").value;
+    const phoneNumber = document.getElementById("phone").value;
 
-        submitButton.disabled = !valid;
-        if (valid) {
-            submitButton.classList.remove('no-hover');
-        } else {
-            submitButton.classList.add('no-hover');
-        }
+    const passwordRegex =
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    if (!password.match(passwordRegex)) {
+      alert(
+        "Password must be at least 8 characters long and include at least one uppercase letter, one lowercase letter, one number, and one special character."
+      );
+      return;
     }
 
-    fields.forEach(field => {
-        field.addEventListener('input', validateForm);
-    });
+    if (password !== confirmPassword) {
+      alert("Passwords do not match. Please try again.");
+      return;
+    }
 
-    confirmPasswordField.addEventListener('input', validateForm);
+    const phoneRegex = /^\d{11}$/;
+    if (!phoneNumber.match(phoneRegex)) {
+      alert("Please enter a valid 11-digit phone number.");
+      return;
+    }
+    const firstName = document.getElementById("firstName").value;
+    const lastName = document.getElementById("lastName").value;
+    alert(`Account successfully created for ${firstName} ${lastName}`);;
 
-    submitButton.addEventListener('click', () => {
-        if (!submitButton.disabled) {
-            form.submit();
-        }
-    });
+    window.location = "../works/professorsaccount.html";
+  });
 });
