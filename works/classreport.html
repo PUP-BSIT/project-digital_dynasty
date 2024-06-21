@@ -9,7 +9,7 @@
   <body>
     <div class="form-container">
       <h1>Attendance Class Report</h1>
-      <form>
+      <form id="attendanceForm">
         <label for="courses">Courses</label>
         <select name="courses" id="courses" required>
           <option value="">Please select the courses</option>
@@ -18,14 +18,14 @@
           <option value="comprog1">Computer Programming 1</option>
         </select>
 
-        <label for="students">Name of the Student</label>
+        <label for="students">Program and Section</label>
         <select name="students" id="students" required>
-          <option value="student1">Student 1</option>
-          <option value="student2">Student 2</option>
-          <option value="student3">Student 3</option>
+          <option value="">Please select the Program and Section</option>
+          <option value="student1">DIT 1-1</option>
+          <option value="student2">DIT 2-1</option>
         </select>
 
-        <label for="calendar">Calendar Picker:</label>
+        <label for="calendar">Date:</label>
         <input
           type="date"
           id="calendar"
@@ -33,27 +33,31 @@
           placeholder="Select a date"/>
 
         <label>Status Update:</label>
-        <div class="status-options">
-          <label for="present"
-            ><input type="radio" id="present" name="status" value="present" />
-            Present</label>
-          <label for="late"
-            ><input type="radio" id="late" name="status" value="late" />
-            Late</label>
-          <label for="absent"
-            ><input type="radio" id="absent" name="status" value="absent" />
-            Absent</label>
-        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Present</th>
+              <th>Absent</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td id="presentCount">24</td>
+              <td id="absentCount">2</td>
+            </tr>
+          </tbody>
+        </table>
 
         <label for="class-report">Class Report:</label>
         <textarea
           id="class-report"
           name="class-report"
-          placeholder="Report of the Professor to this Student"
-        ></textarea>
+          placeholder="Report of the Professor to this Student">
+        </textarea>
 
-        <input type="submit" value="Submit"/>
+        <input type="submit" value="Submit" />
       </form>
     </div>
+    <script src="../js/classreport.js"></script>
   </body>
 </html>

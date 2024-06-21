@@ -7,6 +7,10 @@ body {
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 .form-container {
@@ -16,7 +20,7 @@ body {
   background: #F3EFD0;
   border-radius: 10px;
   max-width: 700px;
-  margin: 100px auto;
+  width: 100%;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   font-weight: bolder;
   text-align: left;
@@ -33,28 +37,27 @@ body {
 
 form {
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: max-content 1fr;
   grid-gap: 15px;
   align-items: center;
+  justify-content: center;
 }
 
 form label {
-  grid-column: 1 / span 1;
   text-align: right;
   padding-right: 10px;
+  white-space: nowrap;
 }
 
 form input[type="text"],
 form input[type="date"],
 form select,
 form textarea {
-  grid-column: 2 / span 1;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 16px;
-  margin-bottom: 10px;
-  width: 100%;
+  width: calc(100% - 20px);
 }
 
 form input[type="radio"] {
@@ -62,18 +65,41 @@ form input[type="radio"] {
 }
 
 form .status-options {
-  grid-column: 2 / span 1;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   padding: 10px 0;
 }
 
 form .status-options label {
+  display: flex;
+  align-items: center;
   margin-right: 10px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+thead th, tbody td {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #ccc;
+}
+
+thead {
+  background-color: #800000;
+  color: white;
+}
+
+tbody td {
+  background-color: #F3EFD0;
 }
 
 form input[type="submit"] {
   grid-column: 1 / span 2;
+  margin-top: 20px;
   padding: 15px;
   border: none;
   background-color: #e69b00;
@@ -82,6 +108,8 @@ form input[type="submit"] {
   cursor: pointer;
   text-align: center;
   border-radius: 5px;
+  width: 80%;
+  margin-left: 10%; 
 }
 
 form input[type="submit"]:hover {
