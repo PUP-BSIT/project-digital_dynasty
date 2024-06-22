@@ -13,11 +13,11 @@
       </div>
       <div class="gold-line"></div>
     </header>
-    <main>
+    <div id="info">
       <div class="greeting">
         <h1 id="student-name">Hello,</h1>
       </div>
-      <div class="container">
+      <div class="student-info">
         <div id="name">Name:</div>
         <div id="gender">Gender:</div>
         <div id="email">Email:</div>
@@ -25,22 +25,7 @@
         <div id="studentnumber">Student Number:</div>
         <div id="contactnumber">Contact Number:</div>
       </div>
-      <div class="course-selection">
-        <label for="courses">Courses</label>
-        <select name="courses" id="courses" required>
-          <option value="">Please select the course</option>
-          <option value="oop">Object Oriented Programming</option>
-          <option value="webdev">Web Development</option>
-          <option value="comprog1">Computer Programming 1</option>
-        </select>
-        <button type="button" onclick="fetchAttendance()">Submit</button>
-      </div>
-      <div class="attendance-status">
-        <h3>Attendance Status</h3>
-        <p id="attendance-status">Present</p>
-      </div>
-      <div id="attendance-data"></div>
-    </main>
+    </div>
     <script src="../js/student_dashboard_script.js"></script>
   </body>
 </html>
