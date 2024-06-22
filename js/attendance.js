@@ -7,11 +7,17 @@ document.addEventListener("DOMContentLoaded", function () {
       const row = button.closest("tr");
       const attendanceStatus = row.querySelector(".attendance-status");
 
-      if (attendanceStatus.querySelector("input") === null) {
-        const currentStatus = attendanceStatus.textContent;
-        attendanceStatus.innerHTML = `<input type="text" 
-           value="${currentStatus}" />`;
-        updateButtons[index].disabled = false;
+      if (!attendanceStatus.querySelector("select")) {
+        const currentStatus = attendanceStatus.textContent.trim();
+        attendanceStatus.innerHTML = `
+          <select class="status-dropdown">
+            <option value="Present" ${
+              currentStatus === "Present" ? "selected" : ""
+            }>Present</option>
+            <option value="Absent" ${
+              currentStatus === "Absent" ? "selected" : ""
+            }>Absent</option>`;
+        updateButtons[index].disabled = true;
       }
     });
   });
@@ -20,23 +26,24 @@ document.addEventListener("DOMContentLoaded", function () {
     button.addEventListener("click", function () {
       const row = button.closest("tr");
       const attendanceStatus = row.querySelector(".attendance-status");
-      const inputField = attendanceStatus.querySelector("input");
+      const selectField = attendanceStatus.querySelector("select");
 
-      if (inputField && inputField.value.trim() !== "") {
-        attendanceStatus.textContent = inputField.value.trim();
+      if (selectField) {
+        attendanceStatus.textContent = selectField.value;
         button.disabled = true;
+        alert("The Status has been Updated!");
       }
     });
   });
 
-  document.addEventListener("input", function (event) {
+  document.addEventListener("change", function (event) {
     if (
-      event.target.tagName === "INPUT" &&
+      event.target.tagName === "SELECT" &&
       event.target.closest(".attendance-status")
     ) {
       const row = event.target.closest("tr");
       const updateButton = row.querySelector(".update-button");
-      updateButton.disabled = event.target.value.trim() === "";
+      updateButton.disabled = false;
     }
   });
 });
