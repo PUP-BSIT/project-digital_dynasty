@@ -13,6 +13,8 @@ document.addEventListener("DOMContentLoaded", function () {
       window.location = "../works/student_dashboard.html";
     } else if (specialKeyInput.startsWith("P")) {
       window.location = "../works/professor_dashboard.html";
+    } else if (specialKeyInput.startsWith("A")) {
+      window.location = "../works/professor_dashboard.html";
     } else {
       alert("Invalid input. Please enter a valid Special Key.");
     }
