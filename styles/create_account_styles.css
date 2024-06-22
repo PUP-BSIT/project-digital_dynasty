@@ -72,6 +72,15 @@ body {
   color: black;
 }
 
+button:disabled:hover {
+  background-color: #e69b00;
+}
+
+button.no-hover:hover {
+  background-color: #e6cc00;
+  color: black;
+}
+
 .form .first {
   grid-area: first;
 }
@@ -122,4 +131,10 @@ body {
 
 .form .confirm {
   grid-area: confirm;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  font-weight: bolder;
 }
