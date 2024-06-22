@@ -1,97 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../styles/summary_report_styles.css" />
-  </head>
-  <body>
-    <header>
-      <h1>Summary Report</h1>
-      <p><strong>Date:</strong> June 7, 2024</p>
-    </header>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Summary Report</title>
+  <link rel="stylesheet" href="../styles/summary_report_style.css">
+</head>
+<body>
+  <header>
+    <h1> Summary Report</h1>
+  </header>
 
-    <section>
-      <h2>Attendance Sheet</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Student Name</th>
-            <th>Gender</th>
-            <th>Present/Absent</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Student 1</td>
-            <td>Male</td>
-            <td>Present</td>
-          </tr>
-          <tr>
-            <td>Student 2</td>
-            <td>Female</td>
-            <td>Present</td>
-          </tr>
-          <tr>
-            <td>Student 3</td>
-            <td>Male</td>
-            <td>Absent</td>
-          </tr>
-          <tr>
-            <td>Student 4</td>
-            <td>Female</td>
-            <td>Present</td>
-          </tr>
-          <tr>
-            <td>Student 5</td>
-            <td>Male</td>
-            <td>Present</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
+  <main>
+    <section id="student-details">
+      <h2>Student Details</h2>
+      <ul>
+        <li><strong>Name:</strong> <span id="name">John Doe</span></li>
+        <li><strong>ID:</strong> <span id="id">12345</span></li>
+        <li><strong>Program:</strong> <span id="program">Computer Science</span>
+        </li>
+        <li><strong>Batch:</strong> <span id="batch">2022</span></li>
+      </ul>
+    </section>
 
-    <section>
-      <h2>Feedbacks</h2>
-      <p>I'm sick.</p>
-    </section>
+    <section id="grades">
+      <h2>Grades</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Subject</th>
+            <th>Grade</th>
+            <th>Attendance</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Web Development</td>
+            <td>A</td>
+            <td>90%</td>
+          </tr>
+          <tr>
+            <td>Network Administration</td>
+            <td>B+</td>
+            <td>85%</td>
+          </tr>
+          <tr>
+            <td>Computer Programming</td>
+            <td>A-</td>
+            <td>88%</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
 
-    <section>
-      <h2>Class Report Chart</h2>
-      <canvas id="progressChart"></canvas>
-    </section>
+    <section id="selected-details">
+      <h2>Selected Details</h2>
+      <div id="selected-details-content"></div>
+    </section>
 
-    <footer class="footer">
-      <p>Prepared by: <strong>Mr. Garcia</strong></p>
-      <p>English Literature 101</p>
-    </footer>
+    <section id="feedback">
+      <h2>Feedback</h2>
+      <form id="feedback-form">
+        <label for="feedback">Enter Feedback:</label>
+        <textarea id="feedback" name="feedback" rows="5" 
+        placeholder="Enter your feedback here..."></textarea>
+        <button type="submit">Submit Feedback</button>
+      </form>
+      <div id="feedback-message"></div>
+    </section>
+  </main>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script>
-      const ctx = document.getElementById("progressChart").getContext("2d");
-      const progressChart = new Chart(ctx, {
-        type: "bar",
-        data: {
-          labels: ["Attendance", "Participation", "Essay", "Quizzes", "Exam"],
-          datasets: [
-            {
-              label: "Progress (%)",
-              data: [80, 90, 85, 78, 80],
-              backgroundColor: "rgba(54, 162, 235, 0.2)",
-              borderColor: "rgba(54, 162, 235, 1)",
-              borderWidth: 1,
-            },
-          ],
-        },
-        options: {
-          scales: {
-            y: {
-              beginAtZero: true,
-              max: 100,
-            },
-          },
-        },
-      });
-    </script>
-  </body>
+  <footer>
+    <p>&copy; 2024  Summary Report</p>
+  </footer>
+
+  <script src="summary_report_script.js"></script>
+</body>
 </html>
