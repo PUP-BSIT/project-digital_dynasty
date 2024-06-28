@@ -64,3 +64,49 @@ tr:hover {
 .edit-button:hover {
   background-color: #e6cc00;
 }
+
+@media only screen and (max-width: 480px) {
+  header {
+    padding: 30px 0;
+  }
+
+  .gold-line {
+    display: none;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  th,
+  td {
+    padding: 10px;
+  }
+
+  .update-button,
+  .edit-button {
+    padding: 6px 12px;
+    font-size: 14px;
+  }
+}
+
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  header {
+    padding: 30px 0;
+  }
+
+  .gold-line {
+    height: 5px;
+    bottom: -5px;
+  }
+
+  table {
+    width: 90%;
+  }
+}
+
+@media only screen and (min-width: 769px) {
+  table {
+    width: 80%;
+  }
+}

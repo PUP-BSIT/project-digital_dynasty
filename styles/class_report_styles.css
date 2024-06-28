@@ -17,7 +17,7 @@ body {
   position: relative;
   z-index: 1;
   padding: 40px;
-  background: #F3EFD0;
+  background: #f3efd0;
   border-radius: 10px;
   max-width: 700px;
   width: 100%;
@@ -44,7 +44,7 @@ form {
 }
 
 form label {
-  text-align: right;
+  text-align: center;
   padding-right: 10px;
   white-space: nowrap;
 }
@@ -57,7 +57,6 @@ form textarea {
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 16px;
-  width: calc(100% - 20px);
 }
 
 form input[type="radio"] {
@@ -82,7 +81,8 @@ table {
   margin-top: 20px;
 }
 
-thead th, tbody td {
+thead th,
+tbody td {
   padding: 10px;
   text-align: center;
   border: 1px solid #ccc;
@@ -94,7 +94,7 @@ thead {
 }
 
 tbody td {
-  background-color: #F3EFD0;
+  background-color: #f3efd0;
 }
 
 form input[type="submit"] {
@@ -109,7 +109,7 @@ form input[type="submit"] {
   text-align: center;
   border-radius: 5px;
   width: 80%;
-  margin-left: 10%; 
+  margin-left: 10%;
 }
 
 form input[type="submit"]:hover {

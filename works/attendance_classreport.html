@@ -10,7 +10,7 @@
     <div class="form-container">
       <h1>Attendance Class Report</h1>
       <form id="attendanceForm">
-        <label for="courses">Courses</label>
+        <label for="courses">Courses:</label>
         <select name="courses" id="courses" required>
           <option value="">Please select the courses</option>
           <option value="oop">Object Oriented Programming</option>
@@ -18,7 +18,7 @@
           <option value="comprog1">Computer Programming 1</option>
         </select>
 
-        <label for="students">Program and Section</label>
+        <label for="students">Program and Section:</label>
         <select name="students" id="students" required>
           <option value="">Please select the Program and Section</option>
           <option value="student1">DIT 1-1</option>
@@ -30,7 +30,8 @@
           type="date"
           id="calendar"
           name="calendar"
-          placeholder="Select a date"/>
+          placeholder="Select a date"
+        />
 
         <label>Status Update:</label>
         <table>
@@ -52,7 +53,8 @@
         <textarea
           id="class-report"
           name="class-report"
-          placeholder="Report of the Professor to this Student">
+          placeholder="Report of the Professor to this Student"
+        >
         </textarea>
 
         <input type="submit" value="Submit" />
