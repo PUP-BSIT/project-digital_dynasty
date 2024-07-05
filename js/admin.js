@@ -1,4 +1,3 @@
-<script>
 document.addEventListener("DOMContentLoaded", function () {
   fetchAttendanceData();
 
@@ -54,4 +53,3 @@ function fetchAttendanceData() {
     })
     .catch((error) => console.error("Error fetching data:", error));
 }
-</script>
