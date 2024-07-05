@@ -1,84 +1,91 @@
-<!DOCTYPE html>
+\<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Administration Dashboard</title>
-  <link rel="stylesheet" href="../styles/administration_dashboard_styles.css" />
-  <style>
-    .input-group {
-      display: flex;
-      align-items: center;
-    }
-    .input-group input[type="search"] {
-      margin-right: 10px;
-    }
-    .attendance-section h2 {
-      text-align: center;
-    }
-  </style>
-</head>
-<body>
-  <div class="header">ADMINISTRATION DASHBOARD</div>
-  <div class="top-right-buttons">
-    <a href="../works/create_account.html">
-      <button id="create-prof">Create Professor Account</button>
-    </a>
-    <a href="../works/attendance_classreport.html">
-      <button id="class-report">Class Report</button>
-    </a>
-  </div>
-  <div class="container">
-    <div class="top-menu">
-      <div>
-        <img src="../assets/images/student.png" alt="Students" />
-        <p>Students</p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Administration Dashboard</title>
+    <link
+      rel="stylesheet"
+      href="../styles/administration_dashboard_styles.css"
+    />
+  </head>
+  <body>
+    <div class="header">ADMINISTRATION DASHBOARD</div>
+    <div class="top-right-buttons">
+      <a href="../works/create_account.html">
+        <button id="create-prof">Create Professor Account</button>
+      </a>
+      <a href="../works/logout.html">
+        <button id="logout">Logout</button>
+      </a>
+    </div>
+    <div class="container">
+      <div class="top-menu">
+        <div>
+          <img src="../assets/images/student.png" alt="Students" />
+          <p>Students</p>
+        </div>
+        <div>
+          <img src="../assets/images/courses.png" alt="Classes" />
+          <p>Courses</p>
+        </div>
+        <div>
+          <img src="../assets/images/classes.png" alt="Total Classes" />
+          <p>Total Classes</p>
+        </div>
+        <div>
+          <img src="../assets/images/prof.png" alt="Class Profs" />
+          <p>Class Profs</p>
+        </div>
+        <div>
+          <img src="../assets/images/session_terms.png" alt="Session Terms" />
+          <p>S.Y</p>
+        </div>
       </div>
-      <div>
-        <img src="../assets/images/courses.png" alt="Classes" />
-        <p>Courses</p>
-      </div>
-      <div>
-        <img src="../assets/images/classes.png" alt="Total Classes" />
-        <p>Total Classes</p>
-      </div>
-      <div>
-        <img src="../assets/images/prof.png" alt="Class Profs" />
-        <p>Class Profs</p>
-      </div>
-      <div>
-        <img src="../assets/images/session_terms.png" alt="Session Terms" />
-        <p>S.Y</p>
+
+      <div class="attendance-section">
+        <h2>Class Attendance</h2>
+        <div class="controls">
+          <div>
+            <label for="classes">Courses</label>
+            <select id="classes">
+              <!-- Options will go here -->
+            </select>
+            <div class="input-group">
+              <input
+                type="search"
+                id="search_input"
+                placeholder="Search by Student Name"
+              />
+              <button type="button" id="search-btn">Enter</button>
+            </div>
+          </div>
+          <div class="right-buttons">
+            <a href="../works/attendance_classreport.html">
+              <button id="class-report">Class Report</button>
+            </a>
+            <select id="user-type">
+              <option value="student">Student</option>
+              <option value="professor">Professor</option>
+            </select>
+          </div>
+        </div>
+        <table class="attendance-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Last Name</th>
+              <th>First Name</th>
+              <th>Student No</th>
+              <th>Courses</th>
+              <th>S.Y</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="attendance-data"></tbody>
+        </table>
       </div>
     </div>
-
-    <div class="attendance-section">
-      <h2>Class Attendance</h2>
-      <label for="classes">Courses</label>
-      <select id="classes">
-
-      </select>
-      <div class="input-group">
-        <input type="search" id="search_input" placeholder="Search by Student Name" />
-        <button type="button" id="search-btn">Enter</button>
-      </div>
-      <table class="attendance-table">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Last Name</th>
-            <th>First Name</th>
-            <th>Student No</th>
-            <th>Courses</th>
-            <th>S.Y</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        <tbody id="attendance-data">
-        </tbody>
-      </table>
-    </div>
-  </div>
-  <script src="../js/admin.js"></script>
-</body>
+    <script src="../js/admin.js"></script>
+  </body>
 </html>
