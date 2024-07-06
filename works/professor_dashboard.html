@@ -11,40 +11,24 @@
     <nav class="sidebar">
       <h2>Dashboard</h2>
       <ul>
-        <li><a href="#home" onclick="showSection('home')">Home</a></li>
-        <li><a href="#profile" onclick="showSection('profile')">Profile</a>
-        </li>
-        <li><a href="#courses" onclick="showSection('courses')">Courses</a>
-        </li>
-        <li><a href="#settings" onclick="showSection('settings')">Settings</a>
-        </li>
+        <li><a href="#profile" onclick="showSection('profile')">Profile</a></li>
+        <li><a href="#courses" onclick="showSection('courses')">Courses</a></li>
+        <li><a href="#settings" onclick="showSection('settings')">Settings</a></li>
         <li><a href="#logout" onclick="logout()">Logout</a></li>
       </ul>
     </nav>
     <main class="content">
       <header>
-        <h1>Welcome, Professor</h1>
+        <div class="title-container">
+          <h1>Professor Dashboard</h1>
+          <div class="circle-button-container">
+            <button class="circle-button" onclick="toggleDropdown()">☰</button>
+            <div id="myDropdown" class="dropdown-content">
+              <a href="#login" onclick="showSection('login')">Login</a>
+            </div>
+          </div>
+        </div>
       </header>
-      <section id="home" class="section">
-        <h2>Home</h2>
-        
-        <h3>Post Announcement</h3>
-        <form id="announcementForm">
-          <div class="form-group">
-            <label for="announcementTitle">Title</label>
-            <input type="text" id="announcementTitle" name="announcementTitle" 
-            required>
-          </div>
-          <div class="form-group">
-            <label for="announcementContent">Content</label>
-            <textarea id="announcementContent" name="announcementContent" 
-            rows="4" required></textarea>
-          </div>
-          <button type="submit">Post Announcement</button>
-        </form>
-
-        <div id="announcements"></div>
-      </section>
       <section id="profile" class="section" style="display: none;">
         <h2>Profile</h2>
         <form id="profileForm">
@@ -93,8 +77,7 @@
           </div>
           <div class="form-group">
             <label for="studentsEnrolled">Students Enrolled</label>
-            <input type="number" id="studentsEnrolled" name="studentsEnrolled" 
-            required>
+            <input type="number" id="studentsEnrolled" name="studentsEnrolled" required>
           </div>
           <button type="submit">Save Course</button>
         </form>
@@ -115,6 +98,23 @@
           </div>
           <button type="submit">Save Settings</button>
         </form>
+      </section>
+      <section id="login" class="section" style="display: none;">
+        <h2>Login</h2>
+        <form id="loginForm" onsubmit="login(event)">
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required>
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+          </div>
+          <button type="submit">Login</button>
+        </form>
+        <div id="loginSuccessMessage" style="display: none;">
+          <p>Login successful!</p>
+        </div>
       </section>
     </main>
   </div>
