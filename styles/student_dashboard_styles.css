@@ -1,89 +1,158 @@
-      body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #f3efd0;
-      }
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f3efd0;
+}
 
-      header {
-        background-color: maroon;
-        color: white;
-        padding: 30px 0;
-        margin-bottom: 1px;
-        position: relative;
-      }
+header {
+  background-color: maroon;
+  color: white;
+  padding: 30px 0;
+  margin-bottom: 1px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-      #header {
-        text-align: center;
-        color: white;
-      }
+#header {
+  text-align: center;
+  color: white;
+  flex-grow: 1;
+}
 
-      .gold-line {
-        height: 10px;
-        background-color: gold;
-        position: absolute;
-        bottom: -10px;
-        left: 0;
-        right: 0;
-      }
+.gold-line {
+  height: 10px;
+  background-color: gold;
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  right: 0;
+}
 
-      #info {
-        padding: 20px;
-        text-align: center;
-        justify-content: center;
-      }
+#logout_button {
+  margin-right: 20px;
+}
 
-      .greeting {
-        background-color: maroon;
-        color: white;
-        width: 500px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: 10px;
-        margin: 0 auto 20px;
-      }
+#logout {
+  background-color: gold;
+  color: maroon;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
 
-      .student-info {
-        display: grid;
-        grid-template-areas:
-          "name gender"
-          "section studentnumber"
-          "email contactnumber";
-        color: white;
-        background: maroon;
-        padding: 10px; 
-        width: 700px;
-        justify-content: space-around;
-        border-radius: 10px;
-        margin: 0 auto 30px;
-      }
+#logout:hover {
+  background-color: darkgoldenrod;
+}
 
-      .student-info > div {
-        margin-bottom: 10px;
-        margin-top: 10px;
-      }
+#content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 20px;
+}
 
-      #name {
-        grid-area: name;
-      }
+#info, #attendance {
+  background-color: maroon;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 10px;
+  flex: 1 1 45%;
+  max-width: 45%;
+}
 
-      #gender {
-        grid-area: gender;
-      }
+.greeting {
+  background-color: maroon;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
 
-      #email {
-        grid-area: email;
-      }
+.student-info {
+  display: grid;
+  grid-template-areas:
+    "name gender"
+    "section studentnumber"
+    "email contactnumber";
+  gap: 10px;
+}
 
-      #section {
-        grid-area: section;
-      }
+.student-info > div {
+  margin-bottom: 10px;
+}
 
-      #studentnumber {
-        grid-area: studentnumber;
-      }
+#name {
+  grid-area: name;
+}
 
-      #contactnumber {
-        grid-area: contactnumber;
-      }
+#gender {
+  grid-area: gender;
+}
+
+#email {
+  grid-area: email;
+}
+
+#section {
+  grid-area: section;
+}
+
+#studentnumber {
+  grid-area: studentnumber;
+}
+
+#contactnumber {
+  grid-area: contactnumber;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid white;
+  padding: 10px;
+  text-align: center;
+}
+
+th {
+  background-color: gold;
+  color: maroon;
+}
+
+@media (max-width: 768px) {
+  #content {
+    flex-direction: column;
+  }
+
+  #info, #attendance {
+    max-width: 100%;
+  }
+
+  .student-info {
+    grid-template-areas:
+      "name"
+      "gender"
+      "section"
+      "studentnumber"
+      "email"
+      "contactnumber";
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .student-info {
+    grid-template-areas:
+      "name gender"
+      "section studentnumber"
+      "email contactnumber";
+  }
+}

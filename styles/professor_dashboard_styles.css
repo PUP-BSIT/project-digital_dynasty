@@ -12,8 +12,8 @@ body {
 }
 
 .sidebar {
-  background-color: #800000;
-  color: #e69b00;
+  background-color: #a01010;
+  color: #ffffff;
   width: 250px;
   padding: 20px;
   box-sizing: border-box;
@@ -36,7 +36,7 @@ body {
 }
 
 .sidebar ul li a {
-  color: #e69b00;
+  color: #ddd;
   text-decoration: none;
   display: block;
   padding: 10px;
@@ -45,43 +45,90 @@ body {
 }
 
 .sidebar ul li a:hover {
-  background-color: #a00000;
+  background-color: #a01010;
 }
 
 .content {
   flex-grow: 1;
   padding: 20px;
   box-sizing: border-box;
-  background-color: #f3efd0; 
+  background-color: #fff5cc;
+  position: relative;
 }
 
 header {
-  background-color: #800000;
-  color: #e69b00;
+  background-color: #a01010;
+  color: #ffffff;
   padding: 20px;
   text-align: center;
   border-radius: 5px;
   margin-bottom: 20px;
+  position: relative;
+}
+
+.title-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.circle-button-container {
+  position: relative;
+  display: inline-block;
+}
+
+.circle-button {
+  background-color: #a01010;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  font-size: 20px;
+  text-align: center;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 50px; 
+  right: 0;
+  background-color: #e6b800;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #e6b800;
+}
+
+.show {
+  display: block;
 }
 
 .section {
   margin-bottom: 20px;
-  background-color: #800000; 
+  background-color: #a01010; 
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(250, 248, 248, 0.1); 
   color: #ffffff; 
 }
 
-.section#home {
-  color: #ffffff;
-}
-
 h2 {
-  border-bottom: 2px solid #800000;
+  border-bottom: 2px solid #a01010;
   padding-bottom: 10px;
   margin-bottom: 10px;
-  color: #e69b00;
+  color: #ffffff;
 }
 
 .table-container {
@@ -95,7 +142,7 @@ table {
 }
 
 table, th, td {
-  border: 1px solid #800000;
+  border: 1px solid #a01010;
 }
 
 th, td {
@@ -104,12 +151,12 @@ th, td {
 }
 
 th {
-  background-color: #800000;
+  background-color: #a01010;
 }
 
 button {
-  background-color: #800000;
-  color: white;
+  background-color: #a01010;
+  color: fff5cc;
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
@@ -133,7 +180,7 @@ label {
 input, select, textarea {
   width: 100%;
   padding: 10px;
-  border: 1px solid #ddd;
+  border: 1px solid #ffffff;
   border-radius: 5px;
   box-sizing: border-box;
 }
@@ -143,15 +190,15 @@ input, select, textarea {
 }
 
 .announcement-box {
-  border: 1px solid #800000;
+  border: 1px solid #a01010;
   padding: 20px;
   border-radius: 5px;
-  background-color: #f3efd0;
+  background-color: #fff5cc;
   margin-bottom: 10px;
 }
 
 .announcement-box h4 {
-  color: #e69b00;
+  color: #e6b800;
   margin-bottom: 10px;
 }
 

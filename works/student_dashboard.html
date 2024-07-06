@@ -12,21 +12,47 @@
       <h2 id="header">Student Information</h2>
     </div>
     <div class="gold-line"></div>
-  </header>
-  <div id="info">
-    <div class="greeting">
-      <h1 id="student-name">Hello, <?php echo htmlspecialchars($_SESSION['studentName']); ?></h1>
+    <div id="logout_button">
+      <button id="logout" onclick="logout()">Log Out</button>
     </div>
-    <div class="student-info">
-      <div id="name">Name: <?php echo htmlspecialchars($_SESSION['studentName']); ?></div>
-      <div id="gender">Gender: <?php echo htmlspecialchars($_SESSION['gender']); ?></div>
-      <div id="email">Email: <?php echo htmlspecialchars($_SESSION['email']); ?></div>
-      <div id="section">Section: <?php echo htmlspecialchars($_SESSION['section']); ?></div>
-      <div id="studentnumber">Student Number: 
-              <?php echo maskStudentNumber($_SESSION['studentNumber']); ?></div>
-      <div id="contactnumber">Contact Number: <?php echo maskContactNumber($_SESSION['contactNumber']); ?></div>
+  </header>
+  <div id="content">
+    <div id="info">
+      <div class="greeting">
+        <h1 id="student-name">Hello, <?php echo htmlspecialchars($_SESSION['studentName']); ?></h1>
+      </div>
+      <div class="student-info">
+        <div id="name">Name: <?php echo htmlspecialchars($_SESSION['studentName']); ?></div>
+        <div id="gender">Gender: <?php echo htmlspecialchars($_SESSION['gender']); ?></div>
+        <div id="email">Email: <?php echo htmlspecialchars($_SESSION['email']); ?></div>
+        <div id="section">Section: <?php echo htmlspecialchars($_SESSION['section']); ?></div>
+        <div id="studentnumber">Student Number: <?php echo maskStudentNumber($_SESSION['studentNumber']); ?></div>
+        <div id="contactnumber">Contact Number: <?php echo maskContactNumber($_SESSION['contactNumber']); ?></div>
+      </div>
+    </div>
+    <div id="attendance">
+      <table>
+        <thead>
+          <tr>
+            <th>Subjects</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Comprog</td>
+            <td>Present</td>
+          </tr>
+          <tr>
+            <td>OOP</td>
+            <td>Absent</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
+
+  </script>
   <script src="../js/student_dashboard_script.js"></script>
 </body>
 </html>
