@@ -10,9 +10,9 @@ document.addEventListener("DOMContentLoaded", function () {
       .toUpperCase();
 
     if (specialKeyInput.startsWith("S")) {
-      window.location = "../works/student_dashboard.html";
+      window.location = "./works/student_dashboard.html";
     } else if (specialKeyInput.startsWith("P")) {
-      window.location = "../works/professor_dashboard.html";
+      window.location = "./works/professor_dashboard.html";
     } else if (specialKeyInput.startsWith("A")) {
       window.location = "../works/administrator_dashboard.html";
     } else {

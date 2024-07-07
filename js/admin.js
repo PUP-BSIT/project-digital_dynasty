@@ -53,3 +53,7 @@ function fetchAttendanceData() {
     })
     .catch((error) => console.error("Error fetching data:", error));
 }
+
+document.getElementById("logout").addEventListener("click", function() {
+  window.location = "../index.html"; 
+});
