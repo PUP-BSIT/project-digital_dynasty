@@ -9,6 +9,11 @@ document.addEventListener("DOMContentLoaded", function () {
       .value.trim()
       .toUpperCase();
 
+    if (specialKeyInput === "") {
+      alert("Please enter a Special Key.");
+      return;
+    }
+
     if (specialKeyInput.startsWith("S")) {
       window.location = "./works/student_dashboard.html";
     } else if (specialKeyInput.startsWith("P")) {
