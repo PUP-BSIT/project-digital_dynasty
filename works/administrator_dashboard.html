@@ -1,88 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Administration Dashboard</title>
-    <link
-      rel="stylesheet"
-      href="../styles/administration_dashboard_styles.css"
-    />
-  </head>
-  <body>
-    <div class="header">ADMINISTRATION DASHBOARD</div>
+    <link rel="stylesheet" href="../styles/administration_dashboard_styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="header">ADMINISTRATOR DASHBOARD</div>
     <div class="top-right-buttons">
-      <a href="../works/create_account.html">
-        <button id="create-prof">Create Professor Account</button>
-      </a>
+        <a href="../works/create_account.html">
+            <button id="create-prof">Create Professor Account</button>
+        </a>
         <button id="logout" class="logout">Logout</button>
-      </a>
     </div>
     <div class="container">
-      <div class="top-menu">
-        <div>
-          <img src="../assets/images/student.png" alt="Students" />
-          <p>Students</p>
-        </div>
-        <div>
-          <img src="../assets/images/courses.png" alt="Classes" />
-          <p>Courses</p>
-        </div>
-        <div>
-          <img src="../assets/images/classes.png" alt="Total Classes" />
-          <p>Total Classes</p>
-        </div>
-        <div>
-          <img src="../assets/images/prof.png" alt="Class Profs" />
-          <p>Class Profs</p>
-        </div>
-        <div>
-          <img src="../assets/images/session_terms.png" alt="Session Terms" />
-          <p>S.Y</p>
-        </div>
-      </div>
-
-      <div class="attendance-section">
-        <h2>Class Attendance</h2>
-        <div class="controls">
-          <div>
-            <label for="classes">Courses</label>
-            <select id="classes"></select>
-            <div class="input-group">
-              <input
-                type="search"
-                id="search_input"
-                placeholder="Search by Student Name"
-              />
-              <button type="button" id="search-btn">Search</button>
+        <div class="top-menu">
+            <div onclick="showChart('Students')">
+                <img src="../assets/images/student.png" alt="Students" />
+                <p>Students</p>
             </div>
-          </div>
-          <div class="right-buttons">
-            <a href="../works/attendance_classreport.html">
-              <button id="class-report">Class Report</button>
-            </a>
-            <select id="user-type">
-              <option value="student">Student</option>
-              <option value="professor">Professor</option>
-            </select>
-          </div>
+            <div onclick="showChart('Programs')">
+                <img src="../assets/images/courses.png" alt="Classes" />
+                <p>Programs</p>
+            </div>
+            <div onclick="showChart('Total Students')">
+                <img src="../assets/images/classes.png" alt="Total Classes" />
+                <p>Total Students</p>
+            </div>
+            <div onclick="showChart('Professors')">
+                <img src="../assets/images/prof.png" alt="Class Profs" />
+                <p>Professors</p>
+            </div>
         </div>
-        <table class="attendance-table">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Last Name</th>
-              <th>First Name</th>
-              <th>Student No</th>
-              <th>Courses</th>
-              <th>S.Y</th>
-              <th>Status</th>
-            </tr>
-          </thead>
-          <tbody id="attendance-data"></tbody>
-        </table>
-      </div>
+        
+        <div class="attendance-section">
+            <h2>Professor List</h2>
+            <div class="controls">
+                <div class="right-buttons">
+                    <a href="../works/attendance_classreport.html">
+                        <button id="class-report">Class Report</button>
+                    </a>
+                </div>
+            </div>
+            <table class="attendance-table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Last Name</th>
+                        <th>First Name</th>
+                        <th>Email</th>                        
+                        <th>Phone Num</th>
+                        <th>Gender</th>
+                        <th>Age</th>
+                    </tr>
+                </thead>
+                <tbody id="attendance-data"></tbody>
+            </table>
+        </div>
     </div>
+    <div id="chartModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="hideChart()">&times;</span>
+            <h2 id="chartTitle"></h2>
+            <canvas id="myChart"></canvas>
+        </div>
+    </div>
+
     <script src="../js/admin.js"></script>
-  </body>
+</body>
 </html>
