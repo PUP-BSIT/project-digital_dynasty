@@ -57,6 +57,8 @@ form textarea {
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 16px;
+  width: 100%;
+  box-sizing: border-box; /* Ensure inputs take full width in their grid cell */
 }
 
 form input[type="radio"] {
@@ -117,30 +119,44 @@ form input[type="submit"]:hover {
   color: black;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 600px) {
   .form-container {
     padding: 20px;
     font-size: 14px;
   }
 
   form {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; 
   }
 
   form input[type="submit"] {
     width: 100%;
     margin-left: 0;
   }
+
+  .form-container h1 {
+    font-size: 20px; 
+    padding: 50px; 
+    margin: -20px -20px 20px -20px; 
+  }
 }
 
-@media (min-width: 769px) and (max-width: 1024px) {
+@media (min-width: 601px) and (max-width: 1024px) {
   .form-container {
     max-width: 500px;
+  }
+
+  form {
+    grid-template-columns: max-content 1fr;
   }
 }
 
 @media (min-width: 1025px) {
   .form-container {
     max-width: 700px;
+  }
+
+  form {
+    grid-template-columns: max-content 1fr;
   }
 }
