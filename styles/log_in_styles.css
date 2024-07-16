@@ -21,17 +21,15 @@ body::before {
 }
 
 .form {
-  margin-top: px;
   position: relative;
   z-index: 1;
   padding: 20px;
   background: rgba(255, 255, 255, 0.9);
   border-radius: 10px;
-  width: 500px;
-  margin: 11% auto;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   font-weight: bolder;
   text-align: center;
+  margin: 11% auto;
 }
 
 .form h1 {
@@ -39,7 +37,7 @@ body::before {
   color: white;
   padding: 5px;
   width: 100%;
-  margin: 15px;
+  margin: 15px 0;
   border-radius: 10px 10px 0 0;
 }
 
@@ -55,7 +53,8 @@ body::before {
 }
 
 .input-container input {
-  width: 400px;
+  width: 100%;
+  max-width: 400px;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -89,7 +88,8 @@ form .submit {
   font-size: 15px;
   cursor: pointer;
   margin-top: 5px;
-  width: 421px;
+  width: 100%;
+  max-width: 421px;
 }
 
 .submit:hover {
@@ -153,24 +153,34 @@ form .submit {
 
 @media (max-width: 600px) {
   .form {
-    max-width: 300px;
-    margin: 50px auto;
+    width: 90%;
+    margin: 20% auto;
     padding: 15px;
   }
 
   .form h1 {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
+  }
+
+  .input-container input {
+    max-width: 100%;
+  }
+
+  form .submit {
+    max-width: 100%;
   }
 }
 
 @media (min-width: 601px) and (max-width: 1024px) {
   .form {
+    width: 80%;
     max-width: 400px;
   }
 }
 
 @media (min-width: 1025px) {
   .form {
+    width: 60%;
     max-width: 600px;
   }
 }
