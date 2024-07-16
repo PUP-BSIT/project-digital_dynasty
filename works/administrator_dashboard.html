@@ -15,8 +15,7 @@
       <a href="../works/create_account.html">
         <button id="create-prof">Create Professor Account</button>
       </a>
-        <button id="logout" class="logout">Logout</button>
-      </a>
+      <button id="logout" class="logout">Logout</button>
     </div>
     <div class="container">
       <div class="top-menu">
@@ -26,45 +25,25 @@
         </div>
         <div>
           <img src="../assets/images/courses.png" alt="Classes" />
-          <p>Courses</p>
+          <p>Programs</p>
         </div>
         <div>
           <img src="../assets/images/classes.png" alt="Total Classes" />
-          <p>Total Classes</p>
+          <p>Total Students</p>
         </div>
         <div>
           <img src="../assets/images/prof.png" alt="Class Profs" />
-          <p>Class Profs</p>
-        </div>
-        <div>
-          <img src="../assets/images/session_terms.png" alt="Session Terms" />
-          <p>S.Y</p>
+          <p>Professors</p>
         </div>
       </div>
 
       <div class="attendance-section">
-        <h2>Class List</h2>
+        <h2>Professor List</h2>
         <div class="controls">
-          <div>
-            <label for="classes">Courses</label>
-            <select id="classes"></select>
-            <div class="input-group">
-              <input
-                type="search"
-                id="search_input"
-                placeholder="Search by Student Name"
-              />
-              <button type="button" id="search-btn">Search</button>
-            </div>
-          </div>
           <div class="right-buttons">
             <a href="../works/attendance_classreport.html">
               <button id="class-report">Class Report</button>
             </a>
-            <select id="user-type">
-              <option value="student">Student</option>
-              <option value="professor">Professor</option>
-            </select>
           </div>
         </div>
         <table class="attendance-table">
@@ -73,10 +52,10 @@
               <th>#</th>
               <th>Last Name</th>
               <th>First Name</th>
-              <th>Student No</th>
-              <th>Courses</th>
-              <th>S.Y</th>
-              <th>Status</th>
+              <th>Email</th>
+              <th>Phone Num</th>
+              <th>Gender</th>
+              <th>Age</th>
             </tr>
           </thead>
           <tbody id="attendance-data"></tbody>
