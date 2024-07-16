@@ -2,23 +2,31 @@ body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
   position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background-image: url(../assets/images/puptclass.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
+  opacity: 0.6;
+  z-index: -1;
 }
 
 .form-container {
-  position: relative;
   z-index: 1;
-  padding: 65px;
-  background: #F3EFD0;
+  background: rgba(255, 255, 255, 0.9);
   border-radius: 10px;
-  max-width: 900px;
-  margin: 100px auto;
+  max-width: 100%;
+  margin: 100px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  font-weight: bolder;
   text-align: center;
 }
 
@@ -32,86 +40,60 @@ body {
 
 .form {
   display: grid;
-  grid-template-areas:
-    "first first middle middle last last"
-    "birthday birthday age age gender gender"
-    "address address address address address address"
-    "email email email phone phone phone"
-    "password password password confirm confirm confirm"
-    ". . button button . .";
+  grid-template-columns: repeat(3, 1fr);
   grid-gap: 15px;
   align-items: center;
+  justify-content: center;
 }
 
-.form input,
-.form select,
-.form button {
-  padding: 10px;
+.input-container {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.input-container input,
+.input-container select {
+  width: 100%;
+  padding: 5px;
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 16px;
-  margin-bottom: 10px;
 }
 
-.form button {
+.input-container label {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  color: #999;
+  transition: top 0.3s, left 0.3s, font-size 0.3s;
+  pointer-events: none;
+}
+
+.input-container input:focus + label,
+.input-container input:valid + label,
+.input-container select:focus + label,
+.input-container select:valid + label {
+  top: -10px;
+  left: 5px;
+  font-size: 12px;
+  color: #666;
+  background-color: white;
+}
+
+.form button[type="submit"] {
+  grid-column: span 3;
+  padding: 10px;
   border: none;
+  border-radius: 5px;
   background-color: #e69b00;
   color: black;
   font-size: 18px;
   cursor: pointer;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  grid-area: button;
+  transition: background-color 0.3s;
 }
 
-.form button:hover {
+.form button[type="submit"]:hover {
   background-color: #e6cc00;
-  color: black;
-}
-
-.form .first {
-  grid-area: first;
-}
-
-.form .middle {
-  grid-area: middle;
-}
-
-.form .last {
-  grid-area: last;
-}
-
-.form .birthday {
-  grid-area: birthday;
-}
-
-.form .age {
-  grid-area: age;
-}
-
-.form .gender {
-  grid-area: gender;
-}
-
-.form .address {
-  grid-area: address;
-}
-
-.form .email {
-  grid-area: email;
-}
-
-.form .phone {
-  grid-area: phone;
-}
-
-.form .password {
-  grid-area: password;
-}
-
-.form .confirm {
-  grid-area: confirm;
 }
 
 @media (max-width: 768px) {
@@ -127,30 +109,19 @@ body {
   }
 
   .form {
-    grid-template-areas:
-      "first first"
-      "birthday birthday"
-      "age age"
-      "gender gender"
-      "address address"
-      "email email"
-      "phone phone"
-      "password password"
-      "confirm confirm"
-      "button button";
+    grid-template-columns: 1fr;
     grid-gap: 10px;
-    align-items: center;
-    justify-content: center;
+    justify-items: center;
   }
 
-  .form input,
-  .form select,
-  .form button {
-    padding: 8px;
+  .input-container input,
+  .input-container select,
+  .form button[type="submit"] {
     font-size: 14px;
+    padding: 8px;
   }
 
-  .form button {
+  .form button[type="submit"] {
     font-size: 16px;
   }
 }
@@ -168,23 +139,17 @@ body {
   }
 
   .form {
-    grid-template-areas:
-      "first first middle middle"
-      "birthday birthday age age"
-      "gender gender address address"
-      "email email phone phone"
-      "password password confirm confirm"
-      "button button button button";
+    grid-template-columns: repeat(2, 1fr);
     grid-gap: 15px;
   }
 
-  .form input,
-  .form select,
-  .form button {
+  .input-container input,
+  .input-container select,
+  .form button[type="submit"] {
     font-size: 15px;
   }
 
-  .form button {
+  .form button[type="submit"] {
     font-size: 17px;
   }
 }
@@ -202,23 +167,62 @@ body {
   }
 
   .form {
-    grid-template-areas:
-      "first first middle middle last last"
-      "birthday birthday age age gender gender"
-      "address address address address address address"
-      "email email email phone phone phone"
-      "password password password confirm confirm confirm"
-      ". . button button . .";
+    grid-template-columns: repeat(3, 1fr);
     grid-gap: 15px;
   }
 
-  .form input,
-  .form select,
-  .form button {
+  .input-container input,
+  .input-container select,
+  .form button[type="submit"] {
     font-size: 16px;
   }
 
-  .form button {
+  .form button[type="submit"] {
     font-size: 18px;
   }
+}
+
+.card {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 16px;
+  color: white;
+  z-index: 1000;
+  text-align: center;
+  width: 300px;
+  background-color: rgba(0, 0, 0, 0.8);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  animation: slideUp 0.5s ease-in-out;
+}
+
+.success {
+  background-color: #06a700;
+  color: white;
+}
+
+.error {
+  background-color: #b90000f1;
+  color: white;
+}
+
+.card .continue-button {
+  margin-top: 15px;
+  padding: 5px 20px;
+  background-color: white;
+  color: red;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.card .continue-button:hover {
+  background-color: red;
+  color: white;
 }
