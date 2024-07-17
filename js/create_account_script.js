@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     const firstName = document.getElementById("firstName").value;
     const lastName = document.getElementById("lastName").value;
-    alert(`Account successfully created for ${firstName} ${lastName}`);;
+    alert(`Account successfully created for ${firstName} ${lastName}`);
 
     window.location = "../works/professorsaccount.html";
   });

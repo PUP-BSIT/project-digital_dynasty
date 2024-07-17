@@ -90,10 +90,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     fetch("../php/sign_up_form.php", {
       method: "POST",
-      body: formData
+      body: formData,
     })
-      .then(response => response.text())
-      .then(data => {
+      .then((response) => response.text())
+      .then((data) => {
         if (data.includes("Sign up successfully")) {
           showSuccess("Sign up successfully! Redirecting to log in page...");
           setTimeout(function () {
@@ -103,7 +103,7 @@ document.addEventListener("DOMContentLoaded", function () {
           showError(data);
         }
       })
-      .catch(error => {
+      .catch((error) => {
         showError("An error occurred. Please try again.");
       });
   });
