@@ -8,14 +8,14 @@
 </head>
 <body>
   <div class="form">
-    <form>
+    <form id="loginForm" action="../php/login.php" method="POST">
       <h1>LOG IN FORM</h1>
       <div class="input-container">
-        <input type="text" id="id" class="input-field">
+        <input type="text" id="id" name="student_number" class="input-field" required>
         <label for="id" class="placeholder">Special Key</label>
       </div>
       <div class="input-container">
-        <input type="password" id="password" class="input-field">
+        <input type="password" id="password" name="password" class="input-field" required>
         <label for="password" class="placeholder">Password</label>
       </div>
       <input type="submit" value="Log In" class="submit">

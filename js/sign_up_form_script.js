@@ -86,11 +86,26 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
     }
 
-    showSuccess("Sign up successfully! Redirecting to log in page...");
+    const formData = new FormData(form);
 
-    setTimeout(function () {
-      window.location = "./log_in_form.html";
-    }, 3000);
+    fetch("../php/sign_up_form.php", {
+      method: "POST",
+      body: formData
+    })
+      .then(response => response.text())
+      .then(data => {
+        if (data.includes("Sign up successfully")) {
+          showSuccess("Sign up successfully! Redirecting to log in page...");
+          setTimeout(function () {
+            window.location = "../works/log_in_form.html";
+          }, 3000);
+        } else {
+          showError(data);
+        }
+      })
+      .catch(error => {
+        showError("An error occurred. Please try again.");
+      });
   });
 
   function showError(message) {
