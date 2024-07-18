@@ -1,14 +1,30 @@
 document.addEventListener("DOMContentLoaded", function () {
-  fetchAttendanceData();
-
-  document.getElementById("user-type").addEventListener("change", function () {
-    fetchAttendanceData();
-  });
+  changeList(); // Load initial data
 });
 
-function fetchAttendanceData() {
-  const userType = document.getElementById("user-type").value;
-  const url = `../php/admin_connect.php?type=${userType}`;
+function changeList() {
+  const listType = document.getElementById("listSelect").value;
+  const title = listType === "professor" ? "Professor List" : "Student List";
+  document.getElementById("listTitle").textContent = title;
+
+  const tableHeader = document.getElementById("tableHeader");
+  tableHeader.innerHTML = `
+    <tr>
+      <th>#</th>
+      <th>Last Name</th>
+      <th>First Name</th>
+      <th>Email</th>
+      <th>Phone Num</th>
+      <th>Gender</th>
+      <th>Age</th>
+    </tr>
+  `;
+
+  fetchAttendanceData(listType);
+}
+
+function fetchAttendanceData(listType) {
+  const url = `../php/admin_connect.php?type=${listType}`;
 
   fetch(url)
     .then((response) => response.json())
@@ -32,20 +48,19 @@ function fetchAttendanceData() {
         row.appendChild(cell3);
 
         const cell4 = document.createElement("td");
-        cell4.textContent =
-          userType === "student" ? item.student_number : item.email;
+        cell4.textContent = item.email;
         row.appendChild(cell4);
 
         const cell5 = document.createElement("td");
-        cell5.textContent = item.class_no;
+        cell5.textContent = item.phone_num;
         row.appendChild(cell5);
 
         const cell6 = document.createElement("td");
-        cell6.textContent = item.date;
+        cell6.textContent = item.gender;
         row.appendChild(cell6);
 
         const cell7 = document.createElement("td");
-        cell7.textContent = item.status;
+        cell7.textContent = item.age;
         row.appendChild(cell7);
 
         tableBody.appendChild(row);
@@ -92,7 +107,7 @@ function showChart(category) {
   };
 
   new Chart(ctx, {
-    type: "bar", 
+    type: "bar",
     data: data,
     options: {
       scales: {
