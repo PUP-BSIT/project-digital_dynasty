@@ -6,7 +6,8 @@
     <title>Administration Dashboard</title>
     <link
       rel="stylesheet"
-      href="../styles/administration_dashboard_styles.css"/>
+      href="../styles/administration_dashboard_styles.css"
+    />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
   <body>
@@ -38,8 +39,12 @@
       </div>
 
       <div class="attendance-section">
-        <h2>Professor List</h2>
+        <h2 id="listTitle">Professor List</h2>
         <div class="controls">
+          <select id="listSelect" onchange="changeList()">
+            <option value="professor">Professor List</option>
+            <option value="student">Student List</option>
+          </select>
           <div class="right-buttons">
             <a href="../works/attendance_classreport.html">
               <button id="class-report">Class Report</button>
@@ -47,7 +52,7 @@
           </div>
         </div>
         <table class="attendance-table">
-          <thead>
+          <thead id="tableHeader">
             <tr>
               <th>#</th>
               <th>Last Name</th>
