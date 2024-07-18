@@ -1,61 +1,115 @@
-
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f3efd0; 
-}
-
-.dashboard {
-  max-width: 100%;
-  margin: 0 auto;
-  padding: 20px;
-  text-align: center; 
+  background-color: #f3efd0;
 }
 
 header {
-  background-color: #8A1B1B; 
-  color: #ffffff; 
-  padding: 20px;
+  background-color: maroon;
+  color: white;
+  padding: 30px 0;
+  margin-bottom: 1px;
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-header h1 {
-  margin: 0;
-  text-align: center; 
-  width: 100%;
-  display: inline-block; 
+#header {
+  text-align: center;
+  color: white;
+  flex-grow: 1;
 }
 
-.buttons {
+.gold-line {
+  height: 10px;
+  background-color: gold;
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  right: 0;
+}
+
+#logout_button {
+  margin-right: 20px;
+}
+
+#logout {
+  background-color: gold;
+  color: maroon;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#logout:hover {
+  background-color: darkgoldenrod;
+}
+
+#content {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+#info, #attendance {
+  background-color: maroon;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 10px;
+  flex: 1 1 45%;
+  max-width: 45%;
+}
+
+.greeting {
+  background-color: maroon;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.student-info {
+  display: grid;
+  grid-template-areas:
+    "name gender"
+    "section studentnumber"
+    "email contactnumber";
   gap: 10px;
 }
 
-.button-container {
-  margin-top: 20px;
-  text-align: center; 
+.student-info > div {
+  margin-bottom: 10px;
 }
 
-button {
-  background-color: #FFD700; 
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-  border-radius: 5px;
-  font-weight: bold;
+#name {
+  grid-area: name;
 }
 
-button:hover {
-  background-color: #FFC107; 
+#gender {
+  grid-area: gender;
 }
 
+#email {
+  grid-area: email;
+}
 
-.table-container {
-  margin-top: 20px;
-  overflow-x: auto; 
+#section {
+  grid-area: section;
+}
+
+#studentnumber {
+  grid-area: studentnumber;
+}
+
+#contactnumber {
+  grid-area: contactnumber;
 }
 
 table {
@@ -63,51 +117,42 @@ table {
   border-collapse: collapse;
 }
 
-thead th {
-  background-color: #8A1B1B; 
-  color: #FFD700; 
-  padding: 10px;
-}
-
-tbody tr:nth-child(even) {
-  background-color: #f9f9f9; 
-}
-
-tbody td {
+th, td {
+  border: 1px solid white;
   padding: 10px;
   text-align: center;
-  border: 1px solid #ccc;
 }
 
-
-.add-course-container {
-  position: relative;
-  display: inline-block;
-  margin-top: 20px; 
+th {
+  background-color: gold;
+  color: maroon;
 }
 
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #8A1B1B;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-  left: 0;
-  right: 0; 
+@media (max-width: 768px) {
+  #content {
+    flex-direction: column;
+  }
+
+  #info, #attendance {
+    max-width: 100%;
+  }
+
+  .student-info {
+    grid-template-areas:
+      "name"
+      "gender"
+      "section"
+      "studentnumber"
+      "email"
+      "contactnumber";
+  }
 }
 
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-
-.dropdown-content a:hover {
-  background-color: #FFD700;
-}
-
-.show {
-  display: block;
+@media (min-width: 769px) and (max-width: 1024px) {
+  .student-info {
+    grid-template-areas:
+      "name gender"
+      "section studentnumber"
+      "email contactnumber";
+  }
 }

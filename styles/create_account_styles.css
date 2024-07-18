@@ -68,7 +68,13 @@ body::before {
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 16px;
+<<<<<<< HEAD
   transition: border-color 0.3s, box-shadow 0.3s;
+=======
+  width: 100%; 
+  box-sizing: border-box; 
+  margin-bottom: 10px;
+>>>>>>> dfdc2e29d675b981f1440b876b912b183949d503
 }
 
 .input-container label {
@@ -169,15 +175,23 @@ body::before {
   }
 }
 
+<<<<<<< HEAD
 /* Media Queries for Responsive Design */
 @media (max-width: 768px) {
   .form-container {
     padding: 20px;
     margin: 20px;
+=======
+@media (max-width: 320px) {
+  .form-container {
+    padding: 10px;
+    margin: 10px;
+>>>>>>> dfdc2e29d675b981f1440b876b912b183949d503
     max-width: 100%;
   }
 
   .form-container h1 {
+<<<<<<< HEAD
     padding: 15px;
     margin: -15px -15px 15px -15px;
   }
@@ -206,6 +220,97 @@ body::before {
   .form button[type="submit"] {
     font-size: 16px;
     padding: 8px;
+=======
+    padding: 10px;
+    margin: -10px -10px 10px -10px;
+  }
+
+  .form {
+    grid-gap: 10px;
+    grid-template-areas:
+        "first first"
+        "middle middle"
+        "last last"
+        "birthday birthday"
+        "age age"
+        "gender gender"
+        "address address"
+        "email email"
+        "phone phone"
+        "courses courses"
+        "status status"
+        "password password"
+        "confirm confirm"
+        "button button";
+  }
+
+  .form input,
+  .form select,
+  .form button {
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  .form button {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 321px) and (max-width: 375px) {
+  .form-container {
+    padding: 15px;
+    margin: 20px;
+  }
+
+  .form-container h1 {
+    padding: 12px;
+    margin: -12px -12px 12px -12px;
+  }
+
+  .form button {
+    font-size: 15px;
+    padding: 10px;
+  }
+}
+
+@media (min-width: 376px) and (max-width: 425px) {
+  .form-container {
+    padding: 15px;
+    margin: 20px;
+  }
+
+  .form-container h1 {
+    padding: 15px;
+    margin: -15px -15px 15px -15px;
+  }
+
+  .form button {
+    font-size: 16px;
+    padding: 12px;
+  }
+}
+
+@media (min-width: 426px) and (max-width: 768px) {
+  .form-container {
+    padding: 20px;
+    margin: 50px auto;
+    max-width: 80%;
+  }
+
+  .form-container h1 {
+    padding: 15px;
+    margin: -15px -15px 15px -15px;
+  }
+
+  .form {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 15px;
+  }
+
+  .form button {
+    font-size: 17px;
+    padding: 12px;
+>>>>>>> dfdc2e29d675b981f1440b876b912b183949d503
   }
 }
 
@@ -222,6 +327,7 @@ body::before {
   }
 
   .form {
+<<<<<<< HEAD
     grid-template-areas:
       "first first first"
       "middle middle middle"
@@ -237,6 +343,15 @@ body::before {
   .form button[type="submit"] {
     font-size: 17px;
     padding: 10px;
+=======
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 15px;
+  }
+
+  .form button {
+    font-size: 17px;
+    padding: 12px;
+>>>>>>> dfdc2e29d675b981f1440b876b912b183949d503
   }
 }
 
@@ -253,6 +368,7 @@ body::before {
   }
 
   .form {
+<<<<<<< HEAD
     grid-template-areas:
       "first first first"
       "middle middle middle"
@@ -266,6 +382,13 @@ body::before {
   }
 
   .form button[type="submit"] {
+=======
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 15px;
+  }
+
+  .form button {
+>>>>>>> dfdc2e29d675b981f1440b876b912b183949d503
     font-size: 18px;
     padding: 15px;
   }
