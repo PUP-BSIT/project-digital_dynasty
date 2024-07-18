@@ -1,108 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../styles/create_account_styles.css" />
-    <title>Create Professor Account</title>
-  </head>
-  <body>
-    <div class="form-container">
-      <h1>Professors Account</h1>
-      <form class="form" id="signupForm">
-        <input
-          type="text"
-          id="firstName"
-          placeholder="First Name"
-          required
-          class="first"/>
-
-        <input
-          type="text"
-          id="middleName"
-          placeholder="Middle Name"
-          class="middle"
-          required/>
-
-        <input
-          type="text"
-          id="lastName"
-          placeholder="Last Name"
-          required
-          class="last"/>
-
-        <div class="birthday">
-          <label for="birthday">Birthday</label>
-          <input type="date" id="birthday" name="birthday" required />
-        </div>
-        <div class="age">
-          <input type="number" name="age" placeholder="Age" required />
-        </div>
-        <div class="gender">
-          <label for="gender">Gender</label>
-          <select name="gender" id="gender" required>
-            <option value="">-----/-----</option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-          </select>
-        </div>
-
-        <input
-          type="text"
-          name="address"
-          placeholder="Address"
-          class="address"
-          required/>
-
-        <input
-          type="email"
-          name="email"
-          placeholder="Email"
-          required
-          class="email"/>
-
-        <input
-          type="tel"
-          name="phone"
-          id="phone"
-          placeholder="Phone"
-          required
-          class="phone"/>
-
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../styles/create_account_styles.css" />
+  <title>Create Professor Account</title>
+</head>
+<body>
+  <div class="form-container">
+    <h1>Professors Account</h1>
+    <form class="form" id="signupForm">
+      <div class="input-container">
+        <label for="firstName">First Name</label>
+        <input type="text" id="firstName" />
+      </div>
+      <div class="input-container">
+        <label for="middleName">Middle Name</label>
+        <input type="text" id="middleName" />
+      </div>
+      <div class="input-container">
+        <label for="lastName">Last Name</label>
+        <input type="text" id="lastName" />
+      </div>
+      <div class="input-container">
+        <label for="birthday">Birthday</label>
+        <input type="date" id="birthday" name="birthday" />
+      </div>
+      <div class="input-container">
+        <label for="age">Age</label>
+        <input type="number" id="age" name="age" />
+      </div>
+      <div class="input-container">
+        <label for="gender">Gender</label>
+        <select id="gender" name="gender">
+          <option value="">-----/-----</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+      </div>
+      <div class="input-container">
+        <label for="address">Address</label>
+        <input type="text" id="address" name="address" />
+      </div>
+      <div class="input-container">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" />
+      </div>
+      <div class="input-container">
+        <label for="phone">Phone</label>
+        <input type="tel" id="phone" name="phone" />
+      </div>
+      <div class="input-container">
         <label for="courses">Courses</label>
-        <select name="courses" id="courses" required>
+        <select id="courses" name="courses">
           <option value="">Please select the courses</option>
           <option value="oop">Object Oriented Programming</option>
           <option value="webdev">Web Development</option>
           <option value="comprog1">Computer Programming 1</option>
         </select>
+      </div>
+      <div class="input-container">
         <label for="status">Status</label>
-        <select name="status" id="status" required>
+        <select id="status" name="status">
           <option value="">Please select the status</option>
           <option value="temp">Temporary Faculty</option>
           <option value="parttime">Part-time Faculty</option>
           <option value="regular">Regular Faculty</option>
         </select>
-        
-        <input
-          type="password"
-          name="password"
-          id="password"
-          placeholder="Password"
-          class="password"
-          required/>
-
-        <input
-          type="password"
-          name="confirmPassword"
-          id="confirmPassword"
-          placeholder="Confirm Password"
-          class="confirm"
-          required/>
-          
-        <button type="submit" id="submit_button">Create Account</button>
-      </form>
-    </div>
-    <script src="../js/create_account_script.js"></script>
-  </body>
+      </div>
+      <div class="input-container">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" />
+      </div>
+      <div class="input-container">
+        <label for="confirmPassword">Confirm Password</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" />
+      </div>
+      <button type="submit" id="submit_button">Create Account</button>
+    </form>
+  </div>
+  <script src="../js/create_account_script.js"></script>
+</body>
 </html>
