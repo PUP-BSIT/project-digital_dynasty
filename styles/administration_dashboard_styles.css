@@ -148,3 +148,111 @@ body {
   text-decoration: none;
   cursor: pointer;
 }
+
+/* Mobile S */
+@media (max-width: 320px) {
+  .header {
+    font-size: 18px;
+    padding: 10px 0;
+  }
+
+  .top-right-buttons {
+    position: static;
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+  .top-right-buttons button {
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+
+  .container {
+    padding: 10px;
+  }
+
+  .top-menu {
+    flex-direction: column;
+  }
+
+  .top-menu div {
+    margin: 5px 0;
+  }
+
+  .top-menu div img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .attendance-section {
+    padding: 10px;
+  }
+
+  .attendance-section .controls {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .attendance-section .controls .right-buttons {
+    margin-top: 10px;
+  }
+
+  .attendance-table th,
+  .attendance-table td {
+    padding: 5px;
+    font-size: 12px;
+  }
+}
+
+/* Mobile M */
+@media (min-width: 321px) and (max-width: 375px) {
+  .header {
+    font-size: 20px;
+  }
+
+  .top-right-buttons button {
+    font-size: 14px;
+  }
+
+  .top-menu div img {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* Mobile L */
+@media (min-width: 376px) and (max-width: 425px) {
+  .top-menu {
+    flex-wrap: wrap;
+  }
+
+  .top-menu div {
+    flex: 1 1 calc(50% - 10px);
+    margin: 5px;
+  }
+}
+
+/* Tablet */
+@media (min-width: 426px) and (max-width: 768px) {
+  .top-right-buttons {
+    top: 10px;
+    right: 10px;
+  }
+
+  .top-menu {
+    flex-wrap: wrap;
+  }
+
+  .top-menu div {
+    flex: 1 1 calc(50% - 10px);
+    margin: 5px;
+  }
+}
+
+/* Laptop and above */
+@media (min-width: 769px) {
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}
