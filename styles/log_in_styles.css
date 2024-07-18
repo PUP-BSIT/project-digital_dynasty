@@ -30,6 +30,7 @@ body::before {
   font-weight: bolder;
   text-align: center;
   margin: 11% auto;
+  margin-top: 200px;
 }
 
 .form h1 {
