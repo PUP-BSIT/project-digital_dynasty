@@ -10,7 +10,7 @@ if ($type === 'chart') {
         case 'Students':
         case 'Professors':
             $table = ($category === 'Students') ? 'student' : 'professor';
-            $query = "SELECT age, gender, COUNT(*) as count FROM $table GROUP BY age, gender";
+            $query = "SELECT gender, COUNT(*) as count FROM $table GROUP BY gender";
             break;
 
         case 'Programs':
@@ -31,10 +31,37 @@ if ($type === 'chart') {
 
     if ($category === 'Total Students') {
         $row = $result->fetch_assoc();
-        $data[] = ['total' => $row['total']];
+        $data[] = ['Category', 'Count'];
+        $data[] = ['Total Students', (int) $row['total']];
     } else {
+        $data[] = [$category === 'Programs' ? 'Course' : 'Gender', 'Count'];
         while ($row = $result->fetch_assoc()) {
-            $data[] = $row;
+            $data[] = [$row[$category === 'Programs' ? 'course' : 'gender'], (int) $row['count']];
+        }
+    }
+
+    echo json_encode($data);
+} elseif ($type === 'list') {
+    $listType = $_GET['listType'] ?? 'professor';
+    $query = $listType === 'student'
+        ? 'SELECT lastname, firstname, email, phone, gender, age FROM student'
+        : 'SELECT lastname, firstname, email, phone, gender, age FROM professor';
+
+    $result = $conn->query($query);
+    $data = [];
+
+    if ($result->num_rows > 0) {
+        $index = 1;
+        while ($row = $result->fetch_assoc()) {
+            $data[] = [
+                'index' => $index++,
+                'lastname' => htmlspecialchars($row['lastname']),
+                'firstname' => htmlspecialchars($row['firstname']),
+                'email' => htmlspecialchars($row['email']),
+                'phone' => htmlspecialchars($row['phone']),
+                'gender' => htmlspecialchars($row['gender']),
+                'age' => htmlspecialchars($row['age'])
+            ];
         }
     }
 
