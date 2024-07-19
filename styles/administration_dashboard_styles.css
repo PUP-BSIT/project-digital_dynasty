@@ -12,12 +12,10 @@ body {
   padding: 20px 0;
   font-size: 24px;
   font-weight: bold;
+  position: relative;
 }
 
 .top-right-buttons {
-  position: absolute;
-  top: 20px;
-  right: 20px;
   display: flex;
   gap: 10px;
 }
@@ -156,7 +154,6 @@ body {
 }
 
 
-/* Mobile S */
 @media (max-width: 320px) {
   .header {
     font-size: 18px;
@@ -211,7 +208,6 @@ body {
   }
 }
 
-/* Mobile M */
 @media (min-width: 321px) and (max-width: 375px) {
   .header {
     font-size: 20px;
@@ -227,7 +223,6 @@ body {
   }
 }
 
-/* Mobile L */
 @media (min-width: 376px) and (max-width: 425px) {
   .top-menu {
     flex-wrap: wrap;
@@ -239,11 +234,16 @@ body {
   }
 }
 
-/* Tablet */
 @media (min-width: 426px) and (max-width: 768px) {
+  .header {
+    padding: 20px 0;
+  }
+
   .top-right-buttons {
-    top: 10px;
-    right: 10px;
+    position: static;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
 
   .top-menu {
@@ -256,10 +256,15 @@ body {
   }
 }
 
-/* Laptop and above */
 @media (min-width: 769px) {
   .container {
     max-width: 1200px;
     margin: 0 auto;
+  }
+
+  .top-right-buttons {
+    position: absolute;
+    top: 20px;
+    right: 20px;
   }
 }
