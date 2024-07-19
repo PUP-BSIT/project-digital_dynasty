@@ -1,7 +1,6 @@
 <?php
-session_start(); // Start session
+session_start(); 
 
-// Include database connection
 require '../db_connect.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -39,12 +38,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['contact_number'] = $row['phone'];
             header("Location: ../works/student_dashboard.php");
         } elseif (strpos($special_key, "P") === 0) {
-            $_SESSION['prof_id'] = $row['prof_id']; // Corrected to use $row['prof_id']
+            $_SESSION['prof_id'] = $row['prof_id'];
             header("Location: ../works/professor_dashboard.php");
         } elseif (strpos($special_key, "A") === 0) {
             $_SESSION['admin_id'] = $row['admin_id'];
             $_SESSION['admin_name'] = $row['firstname'] . ' ' . $row['lastname'];
-            header("Location: ../works/administrator_dashboard.html");
+            header("Location: ../works/administrator_dashboard.php");
         }
         exit();
     } else {

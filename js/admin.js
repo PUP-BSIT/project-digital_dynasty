@@ -1,124 +1,82 @@
-document.addEventListener("DOMContentLoaded", function () {
-  changeList(); // Load initial data
-});
+// Load the Google Charts library
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(initializeCharts);
 
-function changeList() {
-  const listType = document.getElementById("listSelect").value;
-  const title = listType === "professor" ? "Professor List" : "Student List";
-  document.getElementById("listTitle").textContent = title;
+// Mapping chart types to their corresponding data-fetching PHP scripts
+const chartData = {
+  'Students': 'fetch_students_chart_data.php',
+  'Programs': 'fetch_programs_chart_data.php',
+  'Total Students': 'fetch_total_students_chart_data.php',
+  'Professors': 'fetch_professors_chart_data.php'
+};
 
-  const tableHeader = document.getElementById("tableHeader");
-  tableHeader.innerHTML = `
-    <tr>
-      <th>#</th>
-      <th>Last Name</th>
-      <th>First Name</th>
-      <th>Email</th>
-      <th>Phone Num</th>
-      <th>Gender</th>
-      <th>Age</th>
-    </tr>
-  `;
-
-  fetchAttendanceData(listType);
+// Initialize default charts or leave empty if no default
+function initializeCharts() {
+  // Optional: Initialize default chart if needed
 }
 
-function fetchAttendanceData(listType) {
-  const url = `../php/admin_connect.php?type=${listType}`;
-
-  fetch(url)
-    .then((response) => response.json())
-    .then((data) => {
-      const tableBody = document.getElementById("attendance-data");
-      tableBody.innerHTML = "";
-
-      data.forEach((item, index) => {
-        const row = document.createElement("tr");
-
-        const cell1 = document.createElement("td");
-        cell1.textContent = index + 1;
-        row.appendChild(cell1);
-
-        const cell2 = document.createElement("td");
-        cell2.textContent = item.lastname;
-        row.appendChild(cell2);
-
-        const cell3 = document.createElement("td");
-        cell3.textContent = item.firstname;
-        row.appendChild(cell3);
-
-        const cell4 = document.createElement("td");
-        cell4.textContent = item.email;
-        row.appendChild(cell4);
-
-        const cell5 = document.createElement("td");
-        cell5.textContent = item.phone_num;
-        row.appendChild(cell5);
-
-        const cell6 = document.createElement("td");
-        cell6.textContent = item.gender;
-        row.appendChild(cell6);
-
-        const cell7 = document.createElement("td");
-        cell7.textContent = item.age;
-        row.appendChild(cell7);
-
-        tableBody.appendChild(row);
-      });
+// Show chart based on chartType
+function showChart(chartType) {
+  document.getElementById('chartTitle').innerText = chartType;
+  fetch(chartData[chartType])
+    .then(response => response.json())
+    .then(data => {
+      drawChart(chartType, data);
     })
-    .catch((error) => console.error("Error fetching data:", error));
+    .catch(error => console.error('Error fetching chart data:', error));
+
+  document.getElementById('chartModal').style.display = 'block';
 }
 
-document.getElementById("logout").addEventListener("click", function () {
-  window.location = "../index.html";
-});
+// Draw the chart based on chartType and data
+function drawChart(chartType, data) {
+  let chart;
+  const dataTable = google.visualization.arrayToDataTable(data);
+  const options = { title: chartType, is3D: true };
 
-function showChart(category) {
-  document.getElementById("chartTitle").innerText = category + " Chart";
-  document.getElementById("chartModal").style.display = "block";
+  switch (chartType) {
+    case 'Students':
+    case 'Programs':
+    case 'Professors':
+      chart = new google.visualization.PieChart(document.getElementById('chart'));
+      break;
+    case 'Total Students':
+      chart = new google.visualization.BarChart(document.getElementById('chart'));
+      break;
+    default:
+      console.error('Unknown chart type:', chartType);
+      return;
+  }
 
-  const ctx = document.getElementById("myChart").getContext("2d");
-
-  const data = {
-    labels: ["January", "February", "March", "April", "May", "June"],
-    datasets: [
-      {
-        label: category,
-        data: [12, 19, 3, 5, 2, 3],
-        backgroundColor: [
-          "rgba(255, 99, 132, 0.2)",
-          "rgba(54, 162, 235, 0.2)",
-          "rgba(255, 206, 86, 0.2)",
-          "rgba(75, 192, 192, 0.2)",
-          "rgba(153, 102, 255, 0.2)",
-          "rgba(255, 159, 64, 0.2)",
-        ],
-        borderColor: [
-          "rgba(255, 99, 132, 1)",
-          "rgba(54, 162, 235, 1)",
-          "rgba(255, 206, 86, 1)",
-          "rgba(75, 192, 192, 1)",
-          "rgba(153, 102, 255, 1)",
-          "rgba(255, 159, 64, 1)",
-        ],
-        borderWidth: 1,
-      },
-    ],
-  };
-
-  new Chart(ctx, {
-    type: "bar",
-    data: data,
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true,
-        },
-      },
-    },
-  });
+  chart.draw(dataTable, options);
 }
 
+// Hide the chart modal
 function hideChart() {
-  document.getElementById("chartModal").style.display = "none";
+  document.getElementById('chartModal').style.display = 'none';
 }
+
+// Handle the list type change
+function changeList() {
+  const select = document.getElementById('listSelect');
+  const selectedValue = select.value;
+  const newUrl = `?listType=${selectedValue}`;
+  window.location.href = newUrl;
+}
+
+// Event listener for the close button
+document.addEventListener('DOMContentLoaded', () => {
+  const closeButton = document.querySelector('.modal .close');
+  if (closeButton) {
+    closeButton.addEventListener('click', hideChart);
+  }
+
+  // Attach click event listeners to top menu items
+  const topMenuItems = document.querySelectorAll('.top-menu div');
+  topMenuItems.forEach(item => {
+    item.addEventListener('click', () => {
+      const chartType = item.querySelector('p').innerText;
+      showChart(chartType);
+    });
+  });
+});
