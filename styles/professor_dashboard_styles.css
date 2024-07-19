@@ -1,3 +1,4 @@
+/* General Body Styles */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -5,6 +6,7 @@ body {
   background-color: #f3efd0;
 }
 
+/* Header Styles */
 header {
   background-color: maroon;
   color: white;
@@ -48,6 +50,7 @@ header {
   background-color: darkgoldenrod;
 }
 
+/* Content Styles */
 #content {
   display: flex;
   flex-wrap: wrap;
@@ -55,6 +58,7 @@ header {
   padding: 20px;
 }
 
+/* Info and Attendance Sections */
 #info, #attendance {
   background-color: maroon;
   color: white;
@@ -65,94 +69,97 @@ header {
   max-width: 45%;
 }
 
-.greeting {
-  background-color: maroon;
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 10px;
-  margin-bottom: 20px;
-}
-
-.student-info {
-  display: grid;
-  grid-template-areas:
-    "name gender"
-    "section studentnumber"
-    "email contactnumber";
-  gap: 10px;
-}
-
-.student-info > div {
-  margin-bottom: 10px;
-}
-
-#name {
-  grid-area: name;
-}
-
-#gender {
-  grid-area: gender;
-}
-
-#email {
-  grid-area: email;
-}
-
-#section {
-  grid-area: section;
-}
-
-#studentnumber {
-  grid-area: studentnumber;
-}
-
-#contactnumber {
-  grid-area: contactnumber;
-}
-
+/* Table Styles */
 table {
   width: 100%;
   border-collapse: collapse;
 }
 
-th, td {
+table, th, td {
   border: 1px solid white;
+}
+
+th, td {
   padding: 10px;
-  text-align: center;
+  text-align: left;
 }
 
 th {
+  background-color: darkred;
+}
+
+tr:nth-child(even) {
+  background-color: #5c2f2f;
+}
+
+tr:nth-child(odd) {
+  background-color: maroon;
+}
+
+#attendance_table select {
+  display: none;
+}
+
+#attendance_table span {
+  display: inline;
+}
+
+/* General Button Styles */
+.action-btn {
+  margin: 10px;
+  padding: 8px 15px;
   background-color: gold;
   color: maroon;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-@media (max-width: 768px) {
-  #content {
-    flex-direction: column;
-  }
+.action-btn:hover {
+  background-color: darkgoldenrod;
+}
 
+.edit-btn {
+  background-color: darkgoldenrod;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.edit-btn:hover {
+  background-color: goldenrod;
+}
+
+.save-btn {
+  background-color: gold;
+  color: maroon;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.save-btn:hover {
+  background-color: darkgoldenrod;
+}
+
+/* Responsive Styles */
+@media (max-width: 800px) {
   #info, #attendance {
+    flex: 1 1 100%;
     max-width: 100%;
   }
-
-  .student-info {
-    grid-template-areas:
-      "name"
-      "gender"
-      "section"
-      "studentnumber"
-      "email"
-      "contactnumber";
-  }
 }
 
-@media (min-width: 769px) and (max-width: 1024px) {
-  .student-info {
-    grid-template-areas:
-      "name gender"
-      "section studentnumber"
-      "email contactnumber";
+@media (max-width: 500px) {
+  header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  #logout_button {
+    margin: 10px 0;
   }
 }

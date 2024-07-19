@@ -1,41 +1,23 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const form = document.getElementById("attendanceForm");
+document.addEventListener("DOMContentLoaded", function() {
+  const classNo = new URLSearchParams(window.location.search).get("class_no");
 
-  form.addEventListener("submit", function (event) {
-    event.preventDefault();
+  fetch(`classreport.php?class_no=${classNo}`)
+      .then(response => response.json())
+      .then(data => {
+          const tableBody = document.getElementById("attendanceTableBody");
+          tableBody.innerHTML = ""; // Clear existing table data
 
-    const courses = document.getElementById("courses").value;
-    const students = document.getElementById("students").value;
-    const calendar = document.getElementById("calendar").value;
-    const present = document.getElementById("presentCount").textContent;
-    const absent = document.getElementById("absentCount").textContent;
-    const classReport = document.getElementById("class-report").value;
-
-    if (
-      !courses ||
-      !students ||
-      !calendar ||
-      !present ||
-      !absent ||
-      !classReport
-    ) {
-      alert("Please fill out all fields.");
-      return;
-    }
-
-    const formData = {
-      courses: courses,
-      students: students,
-      calendar: calendar,
-      present: present,
-      absent: absent,
-      classReport: classReport,
-    };
-
-    console.log("Form Data:", formData);
-
-    alert("Form submitted successfully!");
-
-    form.reset();
-  });
+          data.forEach(record => {
+              const row = document.createElement("tr");
+              row.innerHTML = `
+                  <td>${record.lastname}</td>
+                  <td>${record.firstname}</td>
+                  <td>${record.student_no}</td>
+                  <td>${record.date}</td>
+                  <td>${record.status}</td>
+              `;
+              tableBody.appendChild(row);
+          });
+      })
+      .catch(error => console.error('Error fetching data:', error));
 });
