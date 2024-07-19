@@ -24,10 +24,6 @@
         <img src="../assets/images/student.png" alt="Students" />
         <p>Students</p>
       </div>
-      <div data-chart-type="Programs">
-        <img src="../assets/images/courses.png" alt="Programs" />
-        <p>Programs</p>
-      </div>
       <div data-chart-type="Total Students">
         <img src="../assets/images/classes.png" alt="Total Students" />
         <p>Total Students</p>

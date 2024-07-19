@@ -13,10 +13,6 @@ if ($type === 'chart') {
             $query = "SELECT gender, COUNT(*) as count FROM $table GROUP BY gender";
             break;
 
-        case 'Programs':
-            $query = "SELECT course, COUNT(*) as count FROM student GROUP BY course";
-            break;
-
         case 'Total Students':
             $query = "SELECT COUNT(*) as total FROM student";
             break;
@@ -34,9 +30,9 @@ if ($type === 'chart') {
         $data[] = ['Category', 'Count'];
         $data[] = ['Total Students', (int) $row['total']];
     } else {
-        $data[] = [$category === 'Programs' ? 'Course' : 'Gender', 'Count'];
+        $data[] = [$category === 'Students' ? 'Gender' : 'Gender', 'Count'];
         while ($row = $result->fetch_assoc()) {
-            $data[] = [$row[$category === 'Programs' ? 'course' : 'gender'], (int) $row['count']];
+            $data[] = [$row['gender'], (int) $row['count']];
         }
     }
 
