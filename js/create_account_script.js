@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const form = document.querySelector("#signupForm");
+  const form = document.querySelector(".form");
 
   form.addEventListener("submit", function (event) {
     event.preventDefault();
@@ -16,43 +16,36 @@ document.addEventListener("DOMContentLoaded", function () {
     const courses = form.courses.value.trim();
     const status = form.status.value.trim();
     const password = form.password.value.trim();
-    const confirm_password = form.confirmPassword.value.trim();
+    const confirmPassword = form.confirmPassword.value.trim();
 
     if (firstname === "") {
       showError("Please enter your First Name.");
       return;
     }
-
     if (middlename === "") {
       showError("Please enter your Middle Name.");
       return;
     }
-
     if (lastname === "") {
       showError("Please enter your Last Name.");
       return;
     }
-
     if (birthday === "") {
       showError("Please enter your Birthday.");
       return;
     }
-
     if (age === "") {
       showError("Please enter your Age.");
       return;
     }
-
     if (gender === "") {
       showError("Please select your Gender.");
       return;
     }
-
     if (address === "") {
       showError("Please enter your Address.");
       return;
     }
-
     if (email === "") {
       showError("Please enter your Email.");
       return;
@@ -60,7 +53,6 @@ document.addEventListener("DOMContentLoaded", function () {
       showError("Please enter a valid Email address.");
       return;
     }
-
     if (phone === "") {
       showError("Please enter your Phone Number.");
       return;
@@ -68,14 +60,12 @@ document.addEventListener("DOMContentLoaded", function () {
       showError("Please enter a valid Phone Number (11 digits only).");
       return;
     }
-
     if (courses === "") {
-      showError("Please select the Courses.");
+      showError("Please select a Course.");
       return;
     }
-
     if (status === "") {
-      showError("Please select the Status.");
+      showError("Please select your Status.");
       return;
     }
 
@@ -89,15 +79,15 @@ document.addEventListener("DOMContentLoaded", function () {
       );
       return;
     }
-
-    if (confirm_password === "") {
+    if (confirmPassword === "") {
       showError("Please confirm your Password.");
       return;
-    } else if (password !== confirm_password) {
+    } else if (password !== confirmPassword) {
       showError("Passwords do not match. Please try again.");
       return;
     }
 
+    // Form data is valid, submit form via fetch
     const formData = new FormData(form);
 
     fetch("../php/create_account.php", {
@@ -106,11 +96,8 @@ document.addEventListener("DOMContentLoaded", function () {
     })
       .then((response) => response.text())
       .then((data) => {
-        if (data.includes("Account created successfully")) {
-          showSuccess("Account created successfully! Redirecting to log in page...");
-          setTimeout(function () {
-            window.location = "../works/log_in_form.html";
-          }, 3000);
+        if (data.includes("Sign up successfully")) {
+          showSuccess("Sign up successfully! Redirecting to log in page...");
         } else {
           showError(data);
         }

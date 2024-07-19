@@ -1,33 +1,45 @@
 <?php
-include("../db_connect.php");
+include 'db_connect.php'; // Include your database connection file
 
-$firstname = $_POST['firstname'];
-$middlename = $_POST['middlename'];
-$lastname = $_POST['lastname'];
-$birthday = $_POST['birthday'];
-$age = $_POST['age'];
-$gender = $_POST['gender'];
-$address = $_POST['address'];
-$email = $_POST['email'];
-$phone = $_POST['phone'];
-$password = $_POST['password'];
-$confirm_password = $_POST['confirm_password'];
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $firstname = $_POST['firstname'];
+    $middlename = $_POST['middlename'];
+    $lastname = $_POST['lastname'];
+    $birthday = $_POST['birthday'];
+    $age = $_POST['age'];
+    $gender = $_POST['gender'];
+    $address = $_POST['address'];
+    $email = $_POST['email'];
+    $phone = $_POST['phone'];
+    $course = $_POST['courses'];
+    $status = $_POST['status'];
+    $password = $_POST['password'];
+    $confirmPassword = $_POST['confirmPassword'];
 
-if ($password === $confirm_password) {
-    $stmt = $conn->prepare("INSERT INTO student (firstname, middlename, lastname, birthday, age, gender, address, email, phone, password) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("ssssisssss", $firstname, $middlename, $lastname, $birthday, $age, $gender, $address, $email, $phone, $password);
+    if ($password !== $confirmPassword) {
+        echo "Passwords do not match.";
+        exit;
+    }
+
+    $passwordHash = password_hash($password, PASSWORD_DEFAULT);
+
+    // Generate prof_id
+    $result = $conn->query("SELECT MAX(id) AS max_id FROM professor");
+    $row = $result->fetch_assoc();
+    $maxId = $row['max_id'] + 1;
+    $profId = sprintf("P%05d", $maxId);
+
+    // Prepare and execute insert query
+    $stmt = $conn->prepare("INSERT INTO professor (firstname, middlename, lastname, birthday, age, gender, address, email, phone, course, status, password, prof_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("ssssissssssss", $firstname, $middlename, $lastname, $birthday, $age, $gender, $address, $email, $phone, $course, $status, $passwordHash, $profId);
 
     if ($stmt->execute()) {
-        echo "Sign up successfully! Redirecting to log in page...";
-        header("refresh:3;url=log_in_form.html");
+        echo "Sign up successfully";
     } else {
-        echo "Sign up failed. Please try again.";
+        echo "Error: " . $stmt->error;
     }
 
     $stmt->close();
-} else {
-    echo "Passwords do not match. Please try again.";
+    $conn->close();
 }
-
-$conn->close();
 ?>

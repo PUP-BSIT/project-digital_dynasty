@@ -8,19 +8,19 @@
 </head>
 <body>
   <div class="form-container">
-    <h1>Professors Account</h1>
-    <form class="form" id="signupForm">
+    <h1>Create Professor Account</h1>
+    <form class="form" id="signupForm" action="../php/sign_up_form.php" method="POST">
       <div class="input-container">
         <label for="firstName">First Name</label>
-        <input type="text" id="firstName" />
+        <input type="text" id="firstName" name="firstname" />
       </div>
       <div class="input-container">
         <label for="middleName">Middle Name</label>
-        <input type="text" id="middleName" />
+        <input type="text" id="middleName" name="middlename" />
       </div>
       <div class="input-container">
         <label for="lastName">Last Name</label>
-        <input type="text" id="lastName" />
+        <input type="text" id="lastName" name="lastname" />
       </div>
       <div class="input-container">
         <label for="birthday">Birthday</label>
