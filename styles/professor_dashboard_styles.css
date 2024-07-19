@@ -1,40 +1,27 @@
-/* General Body Styles */
+/* General Styles */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f3efd0;
+  background-color: #f5f5f5;
 }
 
-/* Header Styles */
 header {
   background-color: maroon;
   color: white;
-  padding: 30px 0;
-  margin-bottom: 1px;
+  padding: 10px;
+  text-align: center;
   position: relative;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 
 #header {
-  text-align: center;
-  color: white;
-  flex-grow: 1;
-}
-
-.gold-line {
-  height: 10px;
-  background-color: gold;
-  position: absolute;
-  bottom: -10px;
-  left: 0;
-  right: 0;
+  margin-bottom: 10px;
 }
 
 #logout_button {
-  margin-right: 20px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
 }
 
 #logout {
@@ -42,124 +29,95 @@ header {
   color: maroon;
   border: none;
   padding: 10px 20px;
-  border-radius: 5px;
+  font-size: 16px;
   cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
 }
 
 #logout:hover {
-  background-color: darkgoldenrod;
+  background-color: #f0c14b;
 }
 
-/* Content Styles */
+.gold-line {
+  height: 5px;
+  background-color: gold;
+}
+
 #content {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
   padding: 20px;
+  max-width: 1200px;
+  margin: auto;
 }
 
-/* Info and Attendance Sections */
 #info, #attendance {
-  background-color: maroon;
-  color: white;
+  background-color: white;
   padding: 20px;
-  border-radius: 10px;
-  margin: 10px;
-  flex: 1 1 45%;
-  max-width: 45%;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Table Styles */
-table {
+h2 {
+  margin-top: 0;
+  color: maroon;
+}
+
+#attendance_table {
   width: 100%;
   border-collapse: collapse;
 }
 
-table, th, td {
-  border: 1px solid white;
+#attendance_table th, #attendance_table td {
+  border: 1px solid #ddd;
+  padding: 8px;
 }
 
-th, td {
-  padding: 10px;
+#attendance_table th {
+  background-color: maroon;
+  color: white;
   text-align: left;
 }
 
-th {
-  background-color: darkred;
+#attendance_table tr:nth-child(even) {
+  background-color: #f9f9f9;
 }
 
-tr:nth-child(even) {
-  background-color: #5c2f2f;
+#attendance_table tr:hover {
+  background-color: #f1f1f1;
 }
 
-tr:nth-child(odd) {
-  background-color: maroon;
-}
-
-#attendance_table select {
-  display: none;
-}
-
-#attendance_table span {
-  display: inline;
-}
-
-/* General Button Styles */
 .action-btn {
-  margin: 10px;
-  padding: 8px 15px;
   background-color: gold;
   color: maroon;
   border: none;
-  border-radius: 5px;
+  padding: 10px 15px;
+  font-size: 16px;
   cursor: pointer;
+  border-radius: 5px;
+  margin-right: 10px;
+  transition: background-color 0.3s;
 }
 
 .action-btn:hover {
-  background-color: darkgoldenrod;
+  background-color: #f0c14b;
 }
 
-.edit-btn {
-  background-color: darkgoldenrod;
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 3px;
-  cursor: pointer;
-}
-
-.edit-btn:hover {
-  background-color: goldenrod;
-}
-
-.save-btn {
+.edit-btn, .save-btn {
   background-color: gold;
   color: maroon;
   border: none;
   padding: 5px 10px;
-  border-radius: 3px;
   cursor: pointer;
+  border-radius: 3px;
+  font-size: 14px;
+  margin-right: 5px;
 }
 
-.save-btn:hover {
-  background-color: darkgoldenrod;
+.save-btn {
+  display: none;
 }
 
-/* Responsive Styles */
-@media (max-width: 800px) {
-  #info, #attendance {
-    flex: 1 1 100%;
-    max-width: 100%;
-  }
-}
-
-@media (max-width: 500px) {
-  header {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  #logout_button {
-    margin: 10px 0;
-  }
+.edit-btn:hover, .save-btn:hover {
+  background-color: #f0c14b;
 }

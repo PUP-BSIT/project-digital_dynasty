@@ -16,7 +16,7 @@
     <a href="../works/create_account.html">
       <button id="create-prof">Create Professor Account</button>
     </a>
-    <button id="logout" class="logout">Logout</button>
+    <button type="button" id="logout" class="logout">Logout</button>
   </div>
   <div class="container">
     <div class="top-menu">

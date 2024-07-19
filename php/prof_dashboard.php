@@ -9,7 +9,6 @@ if (!isset($_SESSION['prof_id'])) {
 
 $prof_id = $_SESSION['prof_id'];
 
-// Fetch professor details and class information, including course details
 $stmt = $conn->prepare("
     SELECT p.prof_id, CONCAT(p.firstname, ' ', p.lastname) AS prof_name, c.class_no, co.course_code
     FROM professor p
@@ -26,8 +25,7 @@ if ($prof_data) {
     $prof_name = $prof_data['prof_name'];
     $class_no = $prof_data['class_no'];
     $course_code = $prof_data['course_code'];
-    
-    // Fetch attendance records
+
     $attendance_stmt = $conn->prepare("
         SELECT s.student_number AS student_no, s.firstname, s.lastname, a.status
         FROM attendance a
