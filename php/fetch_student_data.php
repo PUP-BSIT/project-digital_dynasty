@@ -11,7 +11,6 @@ if ($result->num_rows > 0) {
     }
 }
 
-// Output data as JSON
 echo json_encode($student);
 
 $mysqli->close();

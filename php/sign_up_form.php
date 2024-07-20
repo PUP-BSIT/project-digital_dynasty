@@ -1,5 +1,5 @@
 <?php
-include 'db_connect.php'; // Include your database connection file
+include 'db_connect.php'; 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $firstname = $_POST['firstname'];
@@ -23,13 +23,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $passwordHash = password_hash($password, PASSWORD_DEFAULT);
 
-    // Generate prof_id
     $result = $conn->query("SELECT MAX(id) AS max_id FROM professor");
     $row = $result->fetch_assoc();
     $maxId = $row['max_id'] + 1;
     $profId = sprintf("P%05d", $maxId);
 
-    // Prepare and execute insert query
     $stmt = $conn->prepare("INSERT INTO professor (firstname, middlename, lastname, birthday, age, gender, address, email, phone, course, status, password, prof_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
     $stmt->bind_param("ssssissssssss", $firstname, $middlename, $lastname, $birthday, $age, $gender, $address, $email, $phone, $course, $status, $passwordHash, $profId);
 
