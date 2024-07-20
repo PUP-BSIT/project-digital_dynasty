@@ -41,7 +41,7 @@
       <button id="save_all_button" class="action-btn" disabled>Save All</button>
     </div>
 
-    <button id="logout"><a href="../index.html">Logout</a></button>
+    <button id="logout">c</button>
   </div>
   <script src="../js/professor_dashboard.js"></script>
 </body>

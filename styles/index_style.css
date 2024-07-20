@@ -1,9 +1,14 @@
 body {
   margin: 0;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   overflow-x: hidden;
   background-color: #f5f5f5;
   color: #333;
+}
+
+.buttons .link {
+  text-decoration: none;
+  color: black;
 }
 
 .header {
@@ -34,12 +39,12 @@ body {
   border: none;
   box-shadow: 0 0 0 1px #f7ebeb;
   font-size: 14px;
-  font-weight:bolder;
+  font-weight: bolder;
   margin-left: 10px;
   transition: background-color 0.3s, box-shadow 0.3s;
   cursor: pointer;
   color: #110f0f;
-  font-family: 'Playfair Display', serif;
+  font-family: "Playfair Display", serif;
 }
 
 #log_in:hover,
@@ -47,7 +52,6 @@ body {
   background-color: #ff7f00;
   box-shadow: 0 0 0 4px #ff7f00;
 }
-
 
 .orange img {
   width: 100%;
@@ -72,8 +76,8 @@ body {
 #group_name {
   background-color: #800000;
   color: white;
-  font-family: 'Playfair Display', serif;
-  font-weight:bold;
+  font-family: "Playfair Display", serif;
+  font-weight: bold;
   border-radius: 10px;
   text-align: center;
   margin: 20px auto;
@@ -85,7 +89,7 @@ body {
 .hover-text {
   background-color: #800000;
   color: white;
-  font-family: 'Playfair Display', serif;
+  font-family: "Playfair Display", serif;
   font-weight: bolder;
   padding: 15px;
   border-radius: 10px;
