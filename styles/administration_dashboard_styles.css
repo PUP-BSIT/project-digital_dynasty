@@ -147,9 +147,10 @@ body {
   cursor: pointer;
 }
 
+/* Chart container styles */
 #chart {
   width: 100%;
-  height: 500px;
+  height: 500px; /* Adjust as needed */
 }
 
 

@@ -97,7 +97,7 @@ document.addEventListener("DOMContentLoaded", function () {
       .then((response) => response.text())
       .then((data) => {
         if (data.includes("Sign up successfully")) {
-          showSuccess("Sign up successfully! Redirecting to log in page...");
+          showSuccess("Sign up successfully! Redirecting to administrator page...");
         } else {
           showError(data);
         }
@@ -121,7 +121,7 @@ document.addEventListener("DOMContentLoaded", function () {
     form.appendChild(successCard);
 
     setTimeout(function () {
-      window.location.href = "../works/log_in_form.html";
+      window.location.href = "../works/administrator_dashboard.php";
     }, 3000);
   }
 

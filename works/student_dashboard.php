@@ -40,7 +40,7 @@ $dates_json = json_encode($dates);
         <div class="gold-line"></div>
         <div id="buttons">
             <button id="logout">Log Out</button>
-            <a href="attendance_chart.php"><button id="viewChart">View Attendance Chart</button></a>
+            <a href="attendance_details.php"><button id="viewAttendance">View Attendance Details</button></a>
         </div>
     </header>
     <div id="content">
