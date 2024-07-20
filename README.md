@@ -7,6 +7,8 @@ Student;
 Professor;
         Special Key: P0001
         Password: 1234567890
+        Special Key: P0001
+        Password: 1234567890
 Admin;
         Special Key: ADMIN-001
         Password: password123

@@ -2,7 +2,6 @@ google.charts.load("current", { packages: ["corechart"] });
 google.charts.setOnLoadCallback(initializeCharts);
 
 function initializeCharts() {
-  // Initialize default charts if needed
   fetchListData("professor");
 }
 
