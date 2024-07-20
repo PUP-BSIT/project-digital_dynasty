@@ -1,14 +1,15 @@
 <p><a href="http://www.attendify.shop">Attendify</a></p>
 
-
 Sample Credentials:
 Student;
-        Special Key: S00000
-        Password: Studentdoe@1
+        Special Key: S0001
+        Password: password
 Professor;
-        Special Key: P00000
-        Password: Professordoe@1
+        Special Key: P0001
+        Password: 1234567890
 Admin;
-        Special Key: A00000
-        Password: Admindoe@1
+        Special Key: ADMIN-001
+        Password: password123
+
+
 
