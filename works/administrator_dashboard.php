@@ -54,7 +54,7 @@
           </tr>
         </thead>
         <tbody id="attendance-data">
-          <!-- Data will be populated by JavaScript -->
+  
         </tbody>
       </table>
     </div>

@@ -30,6 +30,7 @@
           <tr>
             <th>First Name</th>
             <th>Last Name</th>
+            <th>Date</th>
             <th>Status</th>
             <th>Actions</th>
           </tr>
