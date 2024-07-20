@@ -10,14 +10,13 @@
   <script src="../js/admin.js" defer></script>
 </head>
 
-<body>
+<div>
   <div class="header">ADMINISTRATOR DASHBOARD</div>
   <div class="top-right-buttons">
     <a href="../works/create_account.html">
       <button id="create-prof">Create Professor Account</button>
-    </a>
-    <button type="button" id="logout" class="logout">Logout</button>
-  </div>
+      <button id="logout"><a href="../index.html">Logout</a></button>
+</div>
   <div class="container">
     <div class="top-menu">
       <div data-chart-type="Students">
