@@ -62,6 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
         header('Content-Type: application/json');
         echo json_encode([
+            'prof_id' => $prof_id,
             'prof_name' => $prof_name,
             'class_no' => $class_no,
             'course_code' => $course_code,
@@ -70,6 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     } else {
         header('Content-Type: application/json');
         echo json_encode([
+            'prof_id' => 'Not found',
             'prof_name' => 'Not found',
             'class_no' => 'Not found',
             'course_code' => 'Not found',

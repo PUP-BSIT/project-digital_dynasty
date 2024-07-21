@@ -1,0 +1,67 @@
+/* Global Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+header {
+  background-color: #800000; /* Maroon header */
+  color: #fff;
+  padding: 20px;
+  width: 100%;
+  text-align: center;
+  border-bottom: 5px solid gold; /* Gold border */
+}
+
+#back_button {
+  background-color: gold;
+  color: maroon;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 10px;
+}
+
+#back_button:hover {
+  background-color: #ffd700;
+}
+
+#controls {
+  margin: 20px;
+}
+
+#chart-selector,
+#show-chart {
+  margin: 10px;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+#show-chart {
+  background-color: gold;
+  color: maroon;
+  border: none;
+  cursor: pointer;
+}
+
+#show-chart:hover {
+  background-color: #ffd700;
+}
+
+.chart {
+  width: 80%;
+  max-width: 1000px;
+  height: 500px;
+  margin: 20px auto;
+}

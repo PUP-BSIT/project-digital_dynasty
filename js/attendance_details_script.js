@@ -10,11 +10,11 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     document.getElementById('back-button').addEventListener('click', function() {
-        window.location.href = 'student_dashboard.php';
+        window.location.href = '../works.student_dashboard.php';
     });
 
     function fetchAttendanceData(date) {
-        fetch('attendance_details.php', {
+        fetch('../php/attendance_details.php', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'

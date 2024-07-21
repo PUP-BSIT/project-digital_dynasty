@@ -26,13 +26,13 @@ document.addEventListener("DOMContentLoaded", () => {
           const statusCell = row.insertCell(3);
           const statusSelect = document.createElement("select");
           statusSelect.innerHTML = `
-            <option value="Present" ${
-              record.status === "Present" ? "selected" : ""
-            }>Present</option>
-            <option value="Absent" ${
-              record.status === "Absent" ? "selected" : ""
-            }>Absent</option>
-          `;
+                      <option value="Present" ${
+                        record.status === "Present" ? "selected" : ""
+                      }>Present</option>
+                      <option value="Absent" ${
+                        record.status === "Absent" ? "selected" : ""
+                      }>Absent</option>
+                  `;
           statusSelect.style.display = "none";
           statusCell.appendChild(statusSelect);
           statusCell.insertAdjacentHTML(
@@ -83,6 +83,30 @@ document.addEventListener("DOMContentLoaded", () => {
               saveAllChanges();
             }
           });
+
+        // Add event listener for statistics button
+        const statisticsButton = document.getElementById("statistics_button");
+        const profIdElement = document.getElementById("prof_id");
+
+        console.log("Statistics Button:", statisticsButton);
+        console.log("Professor ID Element:", profIdElement);
+
+        if (statisticsButton && profIdElement) {
+          statisticsButton.addEventListener("click", () => {
+            const profId = profIdElement.textContent.trim();
+            if (profId) {
+              window.location.href = `statistics_page.html?prof_id=${encodeURIComponent(
+                profId
+              )}`;
+            } else {
+              console.error("Professor ID is not set.");
+            }
+          });
+        } else {
+          console.error(
+            "Statistics button or professor ID element is missing."
+          );
+        }
 
         const logoutButton = document.getElementById("logout");
         if (logoutButton) {
