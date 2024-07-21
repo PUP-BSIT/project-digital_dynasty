@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['student_number'])) {
-    header("Location: ../works/log_in_form.html");
+    header("Location: ./works/log_in_form.html");
     exit();
 }
 require '../db_connect.php';
@@ -18,11 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $attendance_data = ['Present' => 0, 'Absent' => 0];
     while ($row = $result->fetch_assoc()) {
-        if ($row['status'] == 'Present') {
-            $attendance_data['Present'] = $row['count'];
-        } else if ($row['status'] == 'Absent') {
-            $attendance_data['Absent'] = $row['count'];
-        }
+        $attendance_data[$row['status']] = $row['count'];
     }
 
     echo json_encode([
@@ -43,21 +39,19 @@ while ($row = $dates_result->fetch_assoc()) {
 
 $dates_json = json_encode($dates);
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Attendance Details</title>
     <link rel="stylesheet" href="../styles/attendance_details_styles.css" />
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script>
         const dates = <?php echo $dates_json; ?>;
     </script>
-    <script type="text/javascript" src="../js/attendance_details_script.js" defer></script>
 </head>
-
 <body>
     <header>
         <h2 id="header">Attendance Details</h2>
@@ -76,6 +70,6 @@ $dates_json = json_encode($dates);
         </form>
         <div id="chart_div" style="width: 100%; height: 500px; margin: 0 auto;"></div>
     </div>
+    <script src="../js/attendance_details_script.js" defer></script>
 </body>
-
 </html>

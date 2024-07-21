@@ -9,12 +9,8 @@ document.addEventListener('DOMContentLoaded', function() {
         fetchAttendanceData(date);
     });
 
-    document.getElementById('back-button').addEventListener('click', function() {
-        window.location.href = '../works.student_dashboard.php';
-    });
-
     function fetchAttendanceData(date) {
-        fetch('../php/attendance_details.php', {
+        fetch('../works/attendance_details.php', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
@@ -23,7 +19,16 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .then(response => response.json())
         .then(data => {
-            drawChart(data.attendance);
+            if (data && data.attendance) {
+                drawChart(data.attendance);
+            } else {
+                console.error('Invalid data received:', data);
+                drawChart({ Present: 0, Absent: 0 }); // Fallback in case of invalid data
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+            drawChart({ Present: 0, Absent: 0 }); // Fallback in case of error
         });
     }
 
@@ -31,9 +36,14 @@ document.addEventListener('DOMContentLoaded', function() {
         const data = new google.visualization.DataTable();
         data.addColumn('string', 'Status');
         data.addColumn('number', 'Count');
+
+        // Ensure data is defined and has the expected properties
+        const presentCount = attendanceData?.Present || 0;
+        const absentCount = attendanceData?.Absent || 0;
+
         data.addRows([
-            ['Present', attendanceData.Present],
-            ['Absent', attendanceData.Absent]
+            ['Present', presentCount],
+            ['Absent', absentCount]
         ]);
 
         const options = {
