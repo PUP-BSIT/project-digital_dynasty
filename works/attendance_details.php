@@ -11,20 +11,65 @@ $student_number = $_SESSION['student_number'];
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $selected_date = $_POST['date'];
 
-    $stmt = $conn->prepare("SELECT status, COUNT(*) AS count FROM attendance WHERE student_no = ? AND date = ? GROUP BY status");
-    $stmt->bind_param("ss", $student_number, $selected_date);
-    $stmt->execute();
-    $result = $stmt->get_result();
+    if ($selected_date === 'total') {
+        // Fetch total attendance data for all classes
+        $stmt = $conn->prepare("
+            SELECT class_no, status, COUNT(*) AS count
+            FROM attendance
+            WHERE student_no = ?
+            GROUP BY class_no, status
+        ");
+        $stmt->bind_param("s", $student_number);
+        $stmt->execute();
+        $result = $stmt->get_result();
 
-    $attendance_data = ['Present' => 0, 'Absent' => 0];
-    while ($row = $result->fetch_assoc()) {
-        $attendance_data[$row['status']] = $row['count'];
+        $attendance_data = [];
+        $total_attendance = ['Present' => 0, 'Absent' => 0];
+        while ($row = $result->fetch_assoc()) {
+            $class_no = $row['class_no'];
+            $status = $row['status'];
+            if (!isset($attendance_data[$class_no])) {
+                $attendance_data[$class_no] = ['Present' => 0, 'Absent' => 0];
+            }
+            $attendance_data[$class_no][$status] = $row['count'];
+            $total_attendance[$status] += $row['count'];
+        }
+
+        echo json_encode([
+            'date' => 'Total',
+            'attendance' => $attendance_data,
+            'total_attendance' => $total_attendance
+        ]);
+    } else {
+        // Fetch attendance data for a specific date
+        $stmt = $conn->prepare("
+            SELECT class_no, status, COUNT(*) AS count
+            FROM attendance
+            WHERE student_no = ? AND date = ?
+            GROUP BY class_no, status
+        ");
+        $stmt->bind_param("ss", $student_number, $selected_date);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        $attendance_data = [];
+        $total_attendance = ['Present' => 0, 'Absent' => 0];
+        while ($row = $result->fetch_assoc()) {
+            $class_no = $row['class_no'];
+            $status = $row['status'];
+            if (!isset($attendance_data[$class_no])) {
+                $attendance_data[$class_no] = ['Present' => 0, 'Absent' => 0];
+            }
+            $attendance_data[$class_no][$status] = $row['count'];
+            $total_attendance[$status] += $row['count'];
+        }
+
+        echo json_encode([
+            'date' => $selected_date,
+            'attendance' => $attendance_data,
+            'total_attendance' => $total_attendance
+        ]);
     }
-
-    echo json_encode([
-        'date' => $selected_date,
-        'attendance' => $attendance_data
-    ]);
     exit();
 }
 
@@ -62,6 +107,7 @@ $dates_json = json_encode($dates);
         <form id="date-form">
             <label for="date">Select Date:</label>
             <select name="date" id="date">
+                <option value="total">Total Attendance</option> 
                 <?php foreach ($dates as $date) : ?>
                     <option value="<?php echo htmlspecialchars($date); ?>"><?php echo htmlspecialchars($date); ?></option>
                 <?php endforeach; ?>
@@ -69,6 +115,7 @@ $dates_json = json_encode($dates);
             <button type="submit" class="action-btn">View Attendance</button>
         </form>
         <div id="chart_div" style="width: 100%; height: 500px; margin: 0 auto;"></div>
+        <div id="details_div"></div> 
     </div>
     <script src="../js/attendance_details_script.js" defer></script>
 </body>
