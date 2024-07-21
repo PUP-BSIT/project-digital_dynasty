@@ -111,6 +111,12 @@ document.addEventListener("DOMContentLoaded", () => {
     chart.draw(data, options);
   }
 
+  const backButton = document.getElementById("back_button");
+
+  backButton.addEventListener("click", () => {
+    window.location.href = "../works/professor_dashboard.php";
+  });
+
   document.getElementById("show-chart").addEventListener("click", () => {
     const selectedChart = document.getElementById("chart-selector").value;
 

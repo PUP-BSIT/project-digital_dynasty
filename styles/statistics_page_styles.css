@@ -1,23 +1,25 @@
-/* Global Styles */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
   background-color: #f4f4f4;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   height: 100vh;
 }
 
 header {
-  background-color: #800000; /* Maroon header */
+  background-color: #800000;
   color: #fff;
-  padding: 20px;
-  width: 100%;
+  padding: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 5px solid gold;
+}
+
+header h1 {
+  margin: 0;
   text-align: center;
-  border-bottom: 5px solid gold; /* Gold border */
+  flex-grow: 1;
 }
 
 #back_button {
@@ -28,15 +30,20 @@ header {
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
-  margin: 10px;
+  position: absolute;
+  top: 30px;
+  left: 20px;
+  z-index: 9999;
 }
 
 #back_button:hover {
-  background-color: #ffd700;
+  background-color: #fbff03;
 }
 
 #controls {
-  margin: 20px;
+  margin: 20px auto;
+  display: flex;
+  justify-content: center;
 }
 
 #chart-selector,
@@ -56,7 +63,7 @@ header {
 }
 
 #show-chart:hover {
-  background-color: #ffd700;
+  background-color: #fbff03;
 }
 
 .chart {
