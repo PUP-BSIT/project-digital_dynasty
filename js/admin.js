@@ -1,9 +1,7 @@
 google.charts.load("current", { packages: ["corechart"] });
-google.charts.setOnLoadCallback(initializeCharts);
-
-function initializeCharts() {
-  fetchListData("professor");
-}
+google.charts.setOnLoadCallback(() => {
+  // Initialization code if needed
+});
 
 function showChart(chartType) {
   document.getElementById("chartTitle").innerText = chartType;
@@ -101,4 +99,6 @@ document.addEventListener("DOMContentLoaded", () => {
       showChart(chartType);
     });
   });
+
+  // Ensure no automatic modal opening
 });
