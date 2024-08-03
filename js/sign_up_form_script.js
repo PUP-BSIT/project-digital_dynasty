@@ -122,7 +122,7 @@ document.addEventListener("DOMContentLoaded", function () {
     form.appendChild(successCard);
 
     setTimeout(function () {
-      window.location.href = "./log_in_form.html";
+      window.location.href = "./works/log_in_form.html";
     });
   }
 

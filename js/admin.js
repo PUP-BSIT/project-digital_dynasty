@@ -1,6 +1,6 @@
 google.charts.load("current", { packages: ["corechart"] });
 google.charts.setOnLoadCallback(() => {
-  // Initialization code if needed
+  
 });
 
 function showChart(chartType) {
@@ -100,5 +100,4 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Ensure no automatic modal opening
 });
