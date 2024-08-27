@@ -7,11 +7,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $lastname = $_POST['lastname'];
   $birthday = $_POST['birthday'];
   $age = $_POST['age'];
-  $gender = $_POST['gender'];
   $address = $_POST['address'];
   $email = $_POST['email'];
   $phone = $_POST['phone'];
-  $course = $_POST['courses'];
   $status = $_POST['status'];
   $password = $_POST['password'];
   $confirmPassword = $_POST['confirmPassword'];
@@ -28,8 +26,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $maxId = $row['max_id'] + 1;
   $profId = sprintf("P%05d", $maxId);
 
-  $stmt = $conn->prepare("INSERT INTO professor (firstname, middlename, lastname, birthday, age, gender, address, email, phone, course, status, password, prof_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-  $stmt->bind_param("ssssissssssss", $firstname, $middlename, $lastname, $birthday, $age, $gender, $address, $email, $phone, $course, $status, $passwordHash, $profId);
+  $stmt = $conn->prepare("INSERT INTO professor (firstname, middlename, lastname, birthday, age, ddress, email, phone, status, password, prof_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+  $stmt->bind_param("ssssissssssss", $firstname, $middlename, $lastname, $birthday, $age, $address, $email, $phone, $status, $passwordHash, $profId);
 
   if ($stmt->execute()) {
     echo "Sign up successfully";
